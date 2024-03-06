@@ -1,0 +1,521 @@
+{
+	"connections": [
+		{
+			"from": "fbm2",
+			"from_port": 0,
+			"to": "blend2",
+			"to_port": 0
+		},
+		{
+			"from": "fbm2_3",
+			"from_port": 0,
+			"to": "blend2",
+			"to_port": 1
+		},
+		{
+			"from": "math_5",
+			"from_port": 0,
+			"to": "tones_step",
+			"to_port": 0
+		},
+		{
+			"from": "tones_step",
+			"from_port": 0,
+			"to": "blend2_2",
+			"to_port": 2
+		},
+		{
+			"from": "uniform_2",
+			"from_port": 0,
+			"to": "blend2_2",
+			"to_port": 1
+		},
+		{
+			"from": "uniform",
+			"from_port": 0,
+			"to": "blend2_2",
+			"to_port": 0
+		},
+		{
+			"from": "fbm2_2",
+			"from_port": 0,
+			"to": "math_6",
+			"to_port": 1
+		},
+		{
+			"from": "math_6",
+			"from_port": 0,
+			"to": "math_5",
+			"to_port": 0
+		},
+		{
+			"from": "blend2_2",
+			"from_port": 0,
+			"to": "blend2_3",
+			"to_port": 0
+		},
+		{
+			"from": "blend2_3",
+			"from_port": 0,
+			"to": "Material",
+			"to_port": 0
+		},
+		{
+			"from": "normal_map2",
+			"from_port": 0,
+			"to": "Material",
+			"to_port": 4
+		},
+		{
+			"from": "bricks3",
+			"from_port": 0,
+			"to": "math_3",
+			"to_port": 1
+		},
+		{
+			"from": "blend2",
+			"from_port": 0,
+			"to": "math_2",
+			"to_port": 0
+		},
+		{
+			"from": "math_2",
+			"from_port": 0,
+			"to": "math",
+			"to_port": 0
+		},
+		{
+			"from": "math_3",
+			"from_port": 0,
+			"to": "normal_map2",
+			"to_port": 0
+		},
+		{
+			"from": "math",
+			"from_port": 0,
+			"to": "math_4",
+			"to_port": 0
+		},
+		{
+			"from": "uniform_greyscale",
+			"from_port": 0,
+			"to": "math",
+			"to_port": 1
+		},
+		{
+			"from": "uniform_greyscale",
+			"from_port": 0,
+			"to": "math_4",
+			"to_port": 1
+		},
+		{
+			"from": "math_4",
+			"from_port": 0,
+			"to": "math_3",
+			"to_port": 0
+		},
+		{
+			"from": "math_3",
+			"from_port": 0,
+			"to": "blend2_4",
+			"to_port": 2
+		},
+		{
+			"from": "uniform_4",
+			"from_port": 0,
+			"to": "blend2_4",
+			"to_port": 0
+		},
+		{
+			"from": "uniform_3",
+			"from_port": 0,
+			"to": "blend2_4",
+			"to_port": 1
+		},
+		{
+			"from": "blend2_4",
+			"from_port": 0,
+			"to": "blend2_3",
+			"to_port": 1
+		}
+	],
+	"label": "Graph",
+	"longdesc": "",
+	"name": "322",
+	"node_position": {
+		"x": 0,
+		"y": 0
+	},
+	"nodes": [
+		{
+			"export_last_target": "Godot/Godot 4 Standard",
+			"export_paths": {
+				"Godot/Godot 4 Standard": "D:\\GitHub\\Aberation3DPlatformer\\ProceduralTextures\\Concrete"
+			},
+			"name": "Material",
+			"node_position": {
+				"x": 253.680008,
+				"y": -91.760002
+			},
+			"parameters": {
+				"albedo_color": {
+					"a": 1,
+					"b": 1,
+					"g": 1,
+					"r": 1,
+					"type": "Color"
+				},
+				"ao": 1,
+				"depth_scale": 0.5,
+				"emission_energy": 1,
+				"flags_transparent": true,
+				"metallic": 0,
+				"normal": 1,
+				"roughness": 1,
+				"size": 11,
+				"sss": 1
+			},
+			"seed_int": 0,
+			"type": "material"
+		},
+		{
+			"name": "fbm2",
+			"node_position": {
+				"x": -1663.774536,
+				"y": -112.343117
+			},
+			"parameters": {
+				"folds": 0,
+				"iterations": 7,
+				"noise": 9,
+				"offset": 0,
+				"persistence": 0.5,
+				"scale_x": 30,
+				"scale_y": 30
+			},
+			"seed_int": 976030144,
+			"type": "fbm2"
+		},
+		{
+			"name": "normal_map2",
+			"node_position": {
+				"x": -140.040268,
+				"y": 27.27124
+			},
+			"parameters": {
+				"buffer": 1,
+				"param2": 0,
+				"size": 10,
+				"strength": 1
+			},
+			"seed_int": 0,
+			"type": "normal_map2"
+		},
+		{
+			"name": "math",
+			"node_position": {
+				"x": -897.750305,
+				"y": -37.779774
+			},
+			"parameters": {
+				"clamp": true,
+				"default_in1": 0,
+				"default_in2": 0.28,
+				"op": 13
+			},
+			"seed_int": 0,
+			"type": "math"
+		},
+		{
+			"name": "fbm2_2",
+			"node_position": {
+				"x": -1546.220581,
+				"y": -335.355438
+			},
+			"parameters": {
+				"folds": 1,
+				"iterations": 3,
+				"noise": 9,
+				"offset": 0,
+				"persistence": 0.5,
+				"scale_x": 8,
+				"scale_y": 8
+			},
+			"seed_int": 0,
+			"type": "fbm2"
+		},
+		{
+			"name": "fbm2_3",
+			"node_position": {
+				"x": -1666.07019,
+				"y": 110.434662
+			},
+			"parameters": {
+				"folds": 0,
+				"iterations": 7,
+				"noise": 1,
+				"offset": 0.66,
+				"persistence": 0,
+				"scale_x": 5,
+				"scale_y": 5
+			},
+			"seed_int": 4044263424,
+			"type": "fbm2"
+		},
+		{
+			"generic_size": 1,
+			"name": "blend2",
+			"node_position": {
+				"x": -1382.07019,
+				"y": -7.565351
+			},
+			"parameters": {
+				"amount1": 0.5,
+				"blend_type1": 0
+			},
+			"seed_int": 0,
+			"type": "blend2"
+		},
+		{
+			"name": "math_5",
+			"node_position": {
+				"x": -1015.231018,
+				"y": -343.534546
+			},
+			"parameters": {
+				"clamp": false,
+				"default_in1": 0,
+				"default_in2": 1,
+				"op": 13
+			},
+			"seed_int": 0,
+			"type": "math"
+		},
+		{
+			"name": "tones_step",
+			"node_position": {
+				"x": -748.231018,
+				"y": -270.534515
+			},
+			"parameters": {
+				"invert": false,
+				"value": 0.95,
+				"width": 0.04
+			},
+			"seed_int": 0,
+			"type": "tones_step"
+		},
+		{
+			"generic_size": 1,
+			"name": "blend2_2",
+			"node_position": {
+				"x": -504.230865,
+				"y": -360.534637
+			},
+			"parameters": {
+				"amount1": 0.5,
+				"blend_type1": 0
+			},
+			"seed_int": 0,
+			"type": "blend2"
+		},
+		{
+			"name": "uniform",
+			"node_position": {
+				"x": -685.979797,
+				"y": -402.826355
+			},
+			"parameters": {
+				"color": {
+					"a": 1,
+					"b": 1,
+					"g": 1,
+					"r": 1,
+					"type": "Color"
+				}
+			},
+			"seed_int": 0,
+			"type": "uniform"
+		},
+		{
+			"name": "uniform_2",
+			"node_position": {
+				"x": -684.730957,
+				"y": -336.534576
+			},
+			"parameters": {
+				"color": {
+					"a": 1,
+					"b": 0.534453,
+					"g": 0.802362,
+					"r": 1,
+					"type": "Color"
+				}
+			},
+			"seed_int": 0,
+			"type": "uniform"
+		},
+		{
+			"name": "math_6",
+			"node_position": {
+				"x": -1275.551025,
+				"y": -344.981049
+			},
+			"parameters": {
+				"clamp": false,
+				"default_in1": 1,
+				"default_in2": 1,
+				"op": 1
+			},
+			"seed_int": 0,
+			"type": "math"
+		},
+		{
+			"generic_size": 1,
+			"name": "blend2_3",
+			"node_position": {
+				"x": -12.460129,
+				"y": -171.363144
+			},
+			"parameters": {
+				"amount1": 1,
+				"blend_type1": 2
+			},
+			"seed_int": 0,
+			"type": "blend2"
+		},
+		{
+			"name": "math_2",
+			"node_position": {
+				"x": -1129.149048,
+				"y": -29.691
+			},
+			"parameters": {
+				"clamp": true,
+				"default_in1": 0,
+				"default_in2": 0.24,
+				"op": 14
+			},
+			"seed_int": 0,
+			"type": "math"
+		},
+		{
+			"name": "math_3",
+			"node_position": {
+				"x": -389.591125,
+				"y": 35.077225
+			},
+			"parameters": {
+				"clamp": false,
+				"default_in1": 0,
+				"default_in2": 0,
+				"op": 2
+			},
+			"seed_int": 0,
+			"type": "math"
+		},
+		{
+			"name": "bricks3",
+			"node_position": {
+				"x": -667.90332,
+				"y": 188.446228
+			},
+			"parameters": {
+				"bevel": 0.01,
+				"columns": 2,
+				"corner": 0.3,
+				"mortar": 0,
+				"pattern": 0,
+				"repeat": 1,
+				"round": 0.05,
+				"row_offset": 0,
+				"rows": 2
+			},
+			"seed_int": 0,
+			"type": "bricks3"
+		},
+		{
+			"name": "math_4",
+			"node_position": {
+				"x": -662.446655,
+				"y": 41.260841
+			},
+			"parameters": {
+				"clamp": false,
+				"default_in1": 0,
+				"default_in2": 0.28,
+				"op": 3
+			},
+			"seed_int": 0,
+			"type": "math"
+		},
+		{
+			"name": "uniform_greyscale",
+			"node_position": {
+				"x": -1132.606567,
+				"y": 112.260864
+			},
+			"parameters": {
+				"color": 0.28
+			},
+			"seed_int": 0,
+			"type": "uniform_greyscale"
+		},
+		{
+			"generic_size": 1,
+			"name": "blend2_4",
+			"node_position": {
+				"x": -389.759399,
+				"y": -141.499634
+			},
+			"parameters": {
+				"amount1": 1,
+				"blend_type1": 0
+			},
+			"seed_int": 0,
+			"type": "blend2"
+		},
+		{
+			"name": "uniform_3",
+			"node_position": {
+				"x": -682.259399,
+				"y": -86.499634
+			},
+			"parameters": {
+				"color": {
+					"a": 1,
+					"b": 0.85098,
+					"g": 0.698039,
+					"r": 0.662745,
+					"type": "Color"
+				}
+			},
+			"seed_int": 0,
+			"type": "uniform"
+		},
+		{
+			"name": "uniform_4",
+			"node_position": {
+				"x": -682.259399,
+				"y": -150.499634
+			},
+			"parameters": {
+				"color": {
+					"a": 1,
+					"b": 0.701961,
+					"g": 0.494118,
+					"r": 0.47451,
+					"type": "Color"
+				}
+			},
+			"seed_int": 0,
+			"type": "uniform"
+		}
+	],
+	"parameters": {
+
+	},
+	"seed_int": 0,
+	"shortdesc": "",
+	"type": "graph"
+}

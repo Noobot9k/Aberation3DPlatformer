@@ -1,0 +1,232 @@
+{
+	"connections": [
+		{
+			"from": "uniform",
+			"from_port": 0,
+			"to": "blend2",
+			"to_port": 0
+		},
+		{
+			"from": "uniform_2",
+			"from_port": 0,
+			"to": "blend2",
+			"to_port": 1
+		},
+		{
+			"from": "fbm2",
+			"from_port": 0,
+			"to": "normal_map2",
+			"to_port": 0
+		},
+		{
+			"from": "normal_map2",
+			"from_port": 0,
+			"to": "math_v3",
+			"to_port": 0
+		},
+		{
+			"from": "tones_step",
+			"from_port": 0,
+			"to": "blend2",
+			"to_port": 2
+		},
+		{
+			"from": "math_v3",
+			"from_port": 0,
+			"to": "tones_step",
+			"to_port": 0
+		},
+		{
+			"from": "blend2",
+			"from_port": 0,
+			"to": "Material",
+			"to_port": 0
+		},
+		{
+			"from": "fbm2_2",
+			"from_port": 0,
+			"to": "Material",
+			"to_port": 7
+		}
+	],
+	"label": "Graph",
+	"longdesc": "",
+	"name": "@@322",
+	"node_position": {
+		"x": 0,
+		"y": 0
+	},
+	"nodes": [
+		{
+			"export_last_target": "Godot/Godot 4 Standard",
+			"export_paths": {
+				"Godot/Godot 4 Standard": "D:/GitHub/Aberation3DPlatformer/Assets/GenericProps/Tree/ProceduralTextures/Tree_Leaves"
+			},
+			"name": "Material",
+			"node_position": {
+				"x": 0,
+				"y": 0
+			},
+			"parameters": {
+				"albedo_color": {
+					"a": 1,
+					"b": 1,
+					"g": 1,
+					"r": 1,
+					"type": "Color"
+				},
+				"ao": 1,
+				"depth_scale": 0.5,
+				"emission_energy": 1,
+				"flags_transparent": true,
+				"metallic": 0,
+				"normal": 1,
+				"roughness": 1,
+				"size": 11,
+				"sss": 1
+			},
+			"seed_int": 0,
+			"type": "material"
+		},
+		{
+			"name": "uniform",
+			"node_position": {
+				"x": -514.880005,
+				"y": -256.400055
+			},
+			"parameters": {
+				"color": {
+					"a": 1,
+					"b": 0.717647,
+					"g": 1,
+					"r": 0.639216,
+					"type": "Color"
+				}
+			},
+			"seed_int": 0,
+			"type": "uniform"
+		},
+		{
+			"name": "uniform_2",
+			"node_position": {
+				"x": -514.059998,
+				"y": -194.40004
+			},
+			"parameters": {
+				"color": {
+					"a": 1,
+					"b": 0.733333,
+					"g": 0.839216,
+					"r": 0.388235,
+					"type": "Color"
+				}
+			},
+			"seed_int": 0,
+			"type": "uniform"
+		},
+		{
+			"name": "fbm2",
+			"node_position": {
+				"x": -1362.47998,
+				"y": -77.160027
+			},
+			"parameters": {
+				"folds": 0,
+				"iterations": 2,
+				"noise": 1,
+				"offset": 0,
+				"persistence": 0.5,
+				"scale_x": 10,
+				"scale_y": 10
+			},
+			"seed_int": 0,
+			"type": "fbm2"
+		},
+		{
+			"generic_size": 1,
+			"name": "blend2",
+			"node_position": {
+				"x": -293.375793,
+				"y": -153.148666
+			},
+			"parameters": {
+				"amount1": 1,
+				"blend_type1": 0
+			},
+			"seed_int": 0,
+			"type": "blend2"
+		},
+		{
+			"name": "tones_step",
+			"node_position": {
+				"x": -542.745972,
+				"y": -99.582985
+			},
+			"parameters": {
+				"invert": false,
+				"value": 0.5,
+				"width": 0.05
+			},
+			"seed_int": 0,
+			"type": "tones_step"
+		},
+		{
+			"name": "normal_map2",
+			"node_position": {
+				"x": -1107.000366,
+				"y": -74.523811
+			},
+			"parameters": {
+				"buffer": 1,
+				"param2": 0,
+				"size": 10,
+				"strength": 1
+			},
+			"seed_int": 0,
+			"type": "normal_map2"
+		},
+		{
+			"name": "math_v3",
+			"node_position": {
+				"x": -916.371948,
+				"y": -101.040154
+			},
+			"parameters": {
+				"clamp": false,
+				"d_in1_x": 0,
+				"d_in1_y": 0,
+				"d_in1_z": 0,
+				"d_in2_x": 0,
+				"d_in2_y": 1,
+				"d_in2_z": 0,
+				"op": 22
+			},
+			"seed_int": 0,
+			"type": "math_v3"
+		},
+		{
+			"name": "fbm2_2",
+			"node_position": {
+				"x": -767.606689,
+				"y": 188.062195
+			},
+			"parameters": {
+				"folds": 0,
+				"iterations": 3,
+				"noise": 1,
+				"offset": 0,
+				"persistence": 0.5,
+				"scale_x": 15,
+				"scale_y": 15
+			},
+			"seed_int": 3074477056,
+			"type": "fbm2"
+		}
+	],
+	"parameters": {
+
+	},
+	"seed_int": 0,
+	"shortdesc": "",
+	"type": "graph"
+}

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://deihe84wxx3g3"]
+
+[ext_resource type="Script" path="res://Assets/Objects/Pickups/Pickup.gd" id="1_8gkp1"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_vpk3d"]
+radius = 2.0
+
+[node name="Pickup" type="Area3D"]
+script = ExtResource("1_8gkp1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_vpk3d")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(0.853553, -0.146447, 0.5, 0.5, 0.5, -0.707107, -0.146447, 0.853553, 0.5, 0, 0, 0)
+
+[connection signal="body_entered" from="." to="." method="touched"]

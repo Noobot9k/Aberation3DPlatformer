@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://d3u4mjav8wi70"]
+
+[ext_resource type="Texture2D" uid="uid://ca58d3l5ka3xd" path="res://Assets/GenericProps/Cone/Cone_Albedo.png" id="1_nxs6c"]
+
+[resource]
+albedo_texture = ExtResource("1_nxs6c")
