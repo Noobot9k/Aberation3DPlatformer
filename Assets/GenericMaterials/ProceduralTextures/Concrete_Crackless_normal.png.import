@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cst61yyin0it3"
-path.s3tc="res://.godot/imported/Concrete_Crackless_normal.png-e1bafecb1410b9d377020d2322cc689d.s3tc.ctex"
+path.s3tc="res://.godot/imported/Concrete_Crackless_normal.png-cc73a175478451477aaacfbee7a64f49.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://ProceduralTextures/Concrete_Crackless_normal.png"
-dest_files=["res://.godot/imported/Concrete_Crackless_normal.png-e1bafecb1410b9d377020d2322cc689d.s3tc.ctex"]
+source_file="res://Assets/GenericMaterials/ProceduralTextures/Concrete_Crackless_normal.png"
+dest_files=["res://.godot/imported/Concrete_Crackless_normal.png-cc73a175478451477aaacfbee7a64f49.s3tc.ctex"]
 
 [params]
 

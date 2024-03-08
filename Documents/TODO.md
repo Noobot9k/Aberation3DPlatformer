@@ -23,3 +23,5 @@ Flat colors and simple textures. Not pixelated. Make a genuine effort to not mak
     - [x] Stairs/hand rails
     - [ ] Dumpster
 
+## Design
+* Collecting enough coins cause a level-specific spacial aberation thing to happen. (Something weird like gravity reversing.)

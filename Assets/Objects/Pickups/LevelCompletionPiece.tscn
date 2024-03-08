@@ -6,12 +6,14 @@
 radius = 2.0
 
 [node name="Pickup" type="Area3D"]
+collision_mask = 2
 script = ExtResource("1_8gkp1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("SphereShape3D_vpk3d")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(0.853553, -0.146447, 0.5, 0.5, 0.5, -0.707107, -0.146447, 0.853553, 0.5, 0, 0, 0)
+transform = Transform3D(0.853553, -0.146447, 0.5, 0.5, 0.5, -0.707107, -0.146447, 0.853553, 0.5, 0, 1, 0)
 
 [connection signal="body_entered" from="." to="." method="touched"]

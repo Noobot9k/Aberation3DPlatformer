@@ -1,51 +1,26 @@
-[gd_scene load_steps=16 format=3 uid="uid://vt4t5avvvbk3"]
+[gd_scene load_steps=13 format=3 uid="uid://vt4t5avvvbk3"]
 
 [ext_resource type="Script" path="res://Assets/LevelLogic/LevelScript.gd" id="1_bch7c"]
-[ext_resource type="PackedScene" uid="uid://d3ssasoo22ebe" path="res://Assets/Player/Player.tscn" id="1_micj8"]
 [ext_resource type="PackedScene" uid="uid://deihe84wxx3g3" path="res://Assets/Objects/Pickups/LevelCompletionPiece.tscn" id="2_ap41l"]
-[ext_resource type="Material" uid="uid://ckfi4pb7d3ipl" path="res://ProceduralTextures/Concrete.tres" id="4_iwv0f"]
-[ext_resource type="Material" uid="uid://c18ot2umc6bkq" path="res://Assets/GenericMaterials/Grass3D.tres" id="5_255wc"]
-[ext_resource type="PackedScene" uid="uid://f0phmcgnibdw" path="res://Assets/GenericProps/Cone/Cone.tscn" id="6_ja81o"]
-[ext_resource type="PackedScene" uid="uid://t483jnmq7p0l" path="res://Assets/GenericProps/Bollard/Bollard.tscn" id="7_rvcad"]
-[ext_resource type="PackedScene" uid="uid://wjamvsb3p4cp" path="res://Assets/GenericProps/Tree/tree.tscn" id="8_7ssdx"]
-[ext_resource type="PackedScene" uid="uid://bhuw6ptx8h7gr" path="res://Assets/GenericProps/Bush/Bush.tscn" id="9_lws2g"]
-[ext_resource type="PackedScene" uid="uid://cxp12vnwt4x12" path="res://Assets/GenericProps/Stairs/Stairs.tscn" id="10_qp8bi"]
-[ext_resource type="PackedScene" uid="uid://gtvy33icw8o8" path="res://Assets/GenericProps/Handrails/handrail.tscn" id="11_1ypc2"]
-[ext_resource type="PackedScene" uid="uid://bvb55oy4vsoqa" path="res://Assets/GenericProps/Handrails/handrail_stairs.tscn" id="12_1xtho"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_x1d7e"]
-sky_top_color = Color(0, 0.227451, 0.54902, 1)
-sky_horizon_color = Color(0.490196, 0.686275, 1, 1)
-ground_horizon_color = Color(0.490196, 0.686275, 1, 1)
-sun_angle_max = 51.45
-
-[sub_resource type="Sky" id="Sky_1ab73"]
-sky_material = SubResource("ProceduralSkyMaterial_x1d7e")
-
-[sub_resource type="Environment" id="Environment_ki5ta"]
-background_mode = 2
-sky = SubResource("Sky_1ab73")
-ambient_light_source = 2
-ambient_light_color = Color(1, 1, 1, 1)
-ambient_light_sky_contribution = 0.8
-ambient_light_energy = 0.24
+[ext_resource type="PackedScene" uid="uid://ddgrbo660k2vn" path="res://Assets/Objects/required.tscn" id="2_y1fdj"]
+[ext_resource type="Material" uid="uid://ckfi4pb7d3ipl" path="res://Assets/GenericMaterials/ProceduralTextures/Concrete.tres" id="4_iwv0f"]
+[ext_resource type="Material" uid="uid://c18ot2umc6bkq" path="res://Assets/GenericMaterials/ProceduralTextures/Grass3D.tres" id="5_255wc"]
+[ext_resource type="PackedScene" uid="uid://f0phmcgnibdw" path="res://Assets/GenericProps/Cone.tscn" id="6_ja81o"]
+[ext_resource type="PackedScene" uid="uid://t483jnmq7p0l" path="res://Assets/GenericProps/Bollard.tscn" id="7_rvcad"]
+[ext_resource type="PackedScene" uid="uid://wjamvsb3p4cp" path="res://Assets/GenericProps/tree.tscn" id="8_7ssdx"]
+[ext_resource type="PackedScene" uid="uid://bhuw6ptx8h7gr" path="res://Assets/GenericProps/Bush.tscn" id="9_lws2g"]
+[ext_resource type="PackedScene" uid="uid://cxp12vnwt4x12" path="res://Assets/GenericProps/Stairs.tscn" id="10_qp8bi"]
+[ext_resource type="PackedScene" uid="uid://gtvy33icw8o8" path="res://Assets/GenericProps/handrail.tscn" id="11_1ypc2"]
+[ext_resource type="PackedScene" uid="uid://bvb55oy4vsoqa" path="res://Assets/GenericProps/handrail_stairs.tscn" id="12_1xtho"]
 
 [node name="Node3D" type="Node3D" groups=["level_handler"]]
 script = ExtResource("1_bch7c")
 completion_pickups_required = 1
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.866024, 0.433016, -0.250001, 1.47562e-08, 0.499998, 0.866026, 0.500003, -0.749999, 0.43301, 0, 0, 0)
-light_energy = 0.24
-shadow_enabled = true
+[node name="Required" parent="." instance=ExtResource("2_y1fdj")]
 
 [node name="Pickup" parent="." instance=ExtResource("2_ap41l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 4)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_ki5ta")
-
-[node name="CharacterController" parent="." instance=ExtResource("1_micj8")]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, -2, 0)

@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3]
+
+[ext_resource type="Texture" path="./Concrete_Crackless_albedo.png" id="1"]
+[ext_resource type="Texture" path="./Concrete_Crackless_normal.png" id="3"]
+[resource]
+albedo_color = Color(1, 1, 1, 1)
+albedo_texture = ExtResource( 1 )
+metallic = 0
+roughness = 1
+normal_enabled = true
+normal_scale = 1
+normal_texture = ExtResource( 3 )
+
+
+

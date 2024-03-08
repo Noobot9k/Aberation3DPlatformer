@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://d3va2ytm563ub" path="res://Assets/GenericProps/Tree/Tree.glb" id="1_6wit5"]
 [ext_resource type="Material" uid="uid://0mv06dgiah74" path="res://Assets/GenericProps/Tree/ProceduralTextures/Tree_Trunk.tres" id="2_p1hli"]
-[ext_resource type="Material" uid="uid://c18ot2umc6bkq" path="res://Assets/GenericMaterials/Grass3D.tres" id="3_g7jwr"]
+[ext_resource type="Material" uid="uid://c18ot2umc6bkq" path="res://Assets/GenericMaterials/ProceduralTextures/Grass3D.tres" id="3_g7jwr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_762nl"]
 resource_name = "Tree_Trunk"
