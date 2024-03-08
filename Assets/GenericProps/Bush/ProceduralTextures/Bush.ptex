@@ -7,30 +7,6 @@
 			"to_port": 7
 		},
 		{
-			"from": "voronoi2",
-			"from_port": 0,
-			"to": "math",
-			"to_port": 1
-		},
-		{
-			"from": "math",
-			"from_port": 0,
-			"to": "math_2",
-			"to_port": 0
-		},
-		{
-			"from": "graph",
-			"from_port": 0,
-			"to": "math_2",
-			"to_port": 1
-		},
-		{
-			"from": "math_2",
-			"from_port": 0,
-			"to": "math_3",
-			"to_port": 0
-		},
-		{
 			"from": "math_3",
 			"from_port": 0,
 			"to": "tones_step",
@@ -55,16 +31,88 @@
 			"to_port": 1
 		},
 		{
-			"from": "math_3",
+			"from": "normal_map2",
+			"from_port": 0,
+			"to": "Material",
+			"to_port": 4
+		},
+		{
+			"from": "math",
 			"from_port": 0,
 			"to": "blend2",
 			"to_port": 2
 		},
 		{
+			"from": "uniform_4",
+			"from_port": 0,
+			"to": "blend2_2",
+			"to_port": 0
+		},
+		{
+			"from": "uniform_3",
+			"from_port": 0,
+			"to": "blend2_2",
+			"to_port": 1
+		},
+		{
+			"from": "graph",
+			"from_port": 0,
+			"to": "blend2_2",
+			"to_port": 2
+		},
+		{
+			"from": "blend2_2",
+			"from_port": 0,
+			"to": "blend2_3",
+			"to_port": 0
+		},
+		{
 			"from": "blend2",
+			"from_port": 0,
+			"to": "blend2_3",
+			"to_port": 1
+		},
+		{
+			"from": "math",
+			"from_port": 0,
+			"to": "tones_step_2",
+			"to_port": 0
+		},
+		{
+			"from": "tones_step_2",
+			"from_port": 0,
+			"to": "blend2_3",
+			"to_port": 2
+		},
+		{
+			"from": "blend2_3",
 			"from_port": 0,
 			"to": "Material",
 			"to_port": 0
+		},
+		{
+			"from": "math_4",
+			"from_port": 0,
+			"to": "math_3",
+			"to_port": 0
+		},
+		{
+			"from": "math",
+			"from_port": 0,
+			"to": "math_4",
+			"to_port": 0
+		},
+		{
+			"from": "graph",
+			"from_port": 0,
+			"to": "math_5",
+			"to_port": 0
+		},
+		{
+			"from": "math_5",
+			"from_port": 0,
+			"to": "math_4",
+			"to_port": 1
 		},
 		{
 			"from": "math_3",
@@ -73,10 +121,22 @@
 			"to_port": 0
 		},
 		{
-			"from": "normal_map2",
+			"from": "voronoi2",
 			"from_port": 0,
-			"to": "Material",
-			"to_port": 4
+			"to": "math_2",
+			"to_port": 1
+		},
+		{
+			"from": "math_2",
+			"from_port": 0,
+			"to": "math",
+			"to_port": 0
+		},
+		{
+			"from": "gradient_2",
+			"from_port": 0,
+			"to": "math",
+			"to_port": 1
 		}
 	],
 	"label": "Graph",
@@ -88,8 +148,9 @@
 	},
 	"nodes": [
 		{
+			"export_last_target": "Godot/Godot 4 Standard",
 			"export_paths": {
-
+				"Godot/Godot 4 Standard": "D:/GitHub/Aberation3DPlatformer/Assets/GenericProps/Bush/ProceduralTextures/Bush_Leaves"
 			},
 			"name": "Material",
 			"node_position": {
@@ -111,7 +172,7 @@
 				"metallic": 0,
 				"normal": 1,
 				"roughness": 1,
-				"size": 11,
+				"size": 10,
 				"sss": 1
 			},
 			"seed_int": 0,
@@ -166,8 +227,8 @@
 			"longdesc": "",
 			"name": "graph",
 			"node_position": {
-				"x": -779.057861,
-				"y": 20.785797
+				"x": -1166.057861,
+				"y": -1.214203
 			},
 			"nodes": [
 				{
@@ -194,9 +255,9 @@
 						"y": -720
 					},
 					"parameters": {
-						"iterations": 2,
+						"iterations": 1,
 						"persistence": 0.5,
-						"scale_x": 12,
+						"scale_x": 11,
 						"scale_y": 1
 					},
 					"seed": 55134,
@@ -242,9 +303,9 @@
 						"y": -905
 					},
 					"parameters": {
-						"param0": 12,
+						"param0": 11,
 						"param1": 1,
-						"param2": 2,
+						"param2": 1,
 						"param3": 0.5,
 						"param4": 0.5,
 						"param5": 0.5
@@ -347,26 +408,26 @@
 				}
 			],
 			"parameters": {
-				"param0": 12,
+				"param0": 11,
 				"param1": 1,
-				"param2": 2,
+				"param2": 1,
 				"param3": 0.5,
 				"param4": 0.5,
 				"param5": 0.5
 			},
-			"seed_int": 0,
+			"seed_int": 571125824,
 			"shortdesc": "",
 			"type": "graph"
 		},
 		{
 			"name": "tones_step",
 			"node_position": {
-				"x": -22.036011,
-				"y": 62.735168
+				"x": -28.036011,
+				"y": 59.735168
 			},
 			"parameters": {
 				"invert": false,
-				"value": 0.24,
+				"value": 0.32,
 				"width": 0.03
 			},
 			"seed_int": 0,
@@ -375,8 +436,8 @@
 		{
 			"name": "voronoi2",
 			"node_position": {
-				"x": -1059.036011,
-				"y": -128.264832
+				"x": -1737.036011,
+				"y": -175.264832
 			},
 			"parameters": {
 				"intensity": 1,
@@ -386,34 +447,19 @@
 				"stretch_x": 1,
 				"stretch_y": 1
 			},
-			"seed_int": 0,
+			"seed_int": 1056740736,
 			"type": "voronoi2"
 		},
 		{
 			"name": "math",
 			"node_position": {
-				"x": -755.036011,
-				"y": -128.264832
+				"x": -1156.036011,
+				"y": -164.704834
 			},
 			"parameters": {
 				"clamp": false,
 				"default_in1": 1,
-				"default_in2": 0,
-				"op": 1
-			},
-			"seed_int": 0,
-			"type": "math"
-		},
-		{
-			"name": "math_2",
-			"node_position": {
-				"x": -515.036011,
-				"y": -95.264832
-			},
-			"parameters": {
-				"clamp": true,
-				"default_in1": 0,
-				"default_in2": 0,
+				"default_in2": 1,
 				"op": 2
 			},
 			"seed_int": 0,
@@ -423,7 +469,7 @@
 			"name": "math_3",
 			"node_position": {
 				"x": -278.516113,
-				"y": -4.704895
+				"y": -5.704895
 			},
 			"parameters": {
 				"clamp": false,
@@ -470,8 +516,8 @@
 		{
 			"name": "uniform",
 			"node_position": {
-				"x": -206.993835,
-				"y": -73.326447
+				"x": -414.993835,
+				"y": -187.326447
 			},
 			"parameters": {
 				"color": {
@@ -488,8 +534,8 @@
 		{
 			"name": "uniform_2",
 			"node_position": {
-				"x": -204.784912,
-				"y": -132.854248
+				"x": -412.784912,
+				"y": -246.854248
 			},
 			"parameters": {
 				"color": {
@@ -507,8 +553,8 @@
 			"generic_size": 1,
 			"name": "blend2",
 			"node_position": {
-				"x": -20.906281,
-				"y": -65.213959
+				"x": -228.906281,
+				"y": -179.213959
 			},
 			"parameters": {
 				"amount1": 1,
@@ -527,10 +573,166 @@
 				"buffer": 1,
 				"param2": 0,
 				"size": 10,
-				"strength": 0.3
+				"strength": 0.27
 			},
 			"seed_int": 0,
 			"type": "normal_map2"
+		},
+		{
+			"name": "uniform_3",
+			"node_position": {
+				"x": -445.122314,
+				"y": -355.211548
+			},
+			"parameters": {
+				"color": {
+					"a": 1,
+					"b": 0.6,
+					"g": 0.698039,
+					"r": 0.94902,
+					"type": "Color"
+				}
+			},
+			"seed_int": 0,
+			"type": "uniform"
+		},
+		{
+			"name": "uniform_4",
+			"node_position": {
+				"x": -446.122314,
+				"y": -424.211548
+			},
+			"parameters": {
+				"color": {
+					"a": 1,
+					"b": 0.505882,
+					"g": 0.505882,
+					"r": 0.839216,
+					"type": "Color"
+				}
+			},
+			"seed_int": 0,
+			"type": "uniform"
+		},
+		{
+			"generic_size": 1,
+			"name": "blend2_2",
+			"node_position": {
+				"x": -225.466949,
+				"y": -381.627319
+			},
+			"parameters": {
+				"amount1": 1,
+				"blend_type1": 0
+			},
+			"seed_int": 0,
+			"type": "blend2"
+		},
+		{
+			"generic_size": 1,
+			"name": "blend2_3",
+			"node_position": {
+				"x": 131.877686,
+				"y": -337.211548
+			},
+			"parameters": {
+				"amount1": 1,
+				"blend_type1": 0
+			},
+			"seed_int": 0,
+			"type": "blend2"
+		},
+		{
+			"name": "tones_step_2",
+			"node_position": {
+				"x": -874.122314,
+				"y": -245.211548
+			},
+			"parameters": {
+				"invert": false,
+				"value": 0.32,
+				"width": 0.03
+			},
+			"seed_int": 0,
+			"type": "tones_step"
+		},
+		{
+			"name": "math_4",
+			"node_position": {
+				"x": -636.122314,
+				"y": -77.211548
+			},
+			"parameters": {
+				"clamp": true,
+				"default_in1": 0,
+				"default_in2": 0,
+				"op": 14
+			},
+			"seed_int": 0,
+			"type": "math"
+		},
+		{
+			"name": "math_5",
+			"node_position": {
+				"x": -884.122314,
+				"y": 46.788452
+			},
+			"parameters": {
+				"clamp": false,
+				"default_in1": 0,
+				"default_in2": 0.75,
+				"op": 2
+			},
+			"seed_int": 0,
+			"type": "math"
+		},
+		{
+			"name": "math_2",
+			"node_position": {
+				"x": -1457.272705,
+				"y": -198.95401
+			},
+			"parameters": {
+				"clamp": false,
+				"default_in1": 1,
+				"default_in2": 0,
+				"op": 1
+			},
+			"seed_int": 0,
+			"type": "math"
+		},
+		{
+			"name": "gradient_2",
+			"node_position": {
+				"x": -1438.772705,
+				"y": -43.454002
+			},
+			"parameters": {
+				"gradient": {
+					"interpolation": 1,
+					"points": [
+						{
+							"a": 1,
+							"b": 0,
+							"g": 0,
+							"pos": 0,
+							"r": 0
+						},
+						{
+							"a": 1,
+							"b": 1,
+							"g": 1,
+							"pos": 0.569767,
+							"r": 1
+						}
+					],
+					"type": "Gradient"
+				},
+				"repeat": 1,
+				"rotate": -90
+			},
+			"seed_int": 0,
+			"type": "gradient"
 		}
 	],
 	"parameters": {
