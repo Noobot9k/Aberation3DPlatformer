@@ -139,12 +139,6 @@
 			"to_port": 1
 		},
 		{
-			"from": "bricks3",
-			"from_port": 0,
-			"to": "math_7",
-			"to_port": 1
-		},
-		{
 			"from": "tones_map",
 			"from_port": 0,
 			"to": "math_7",
@@ -584,7 +578,7 @@
 			"parameters": {
 				"clamp": true,
 				"default_in1": 0,
-				"default_in2": 0,
+				"default_in2": 1,
 				"op": 13
 			},
 			"seed_int": 0,

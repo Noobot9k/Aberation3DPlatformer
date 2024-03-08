@@ -14,12 +14,12 @@ Flat colors and simple textures. Not pixelated. Make a genuine effort to not mak
 - [ ] Generic props
     - [ ] Planter box
     - [x] Traffic cones
-    - [ ] Bush
-    - [ ] Tree
+    - [x] Bush
+    - [x] Tree
         - [x] Leaves  material
-        - [ ] Leaves shader
-        - [ ] Bark material
+        - [x] Leaves shader
+        - [x] Bark material
     - [x] Bollard
-    - [ ] Stairs/hand rails
+    - [x] Stairs/hand rails
     - [ ] Dumpster
 

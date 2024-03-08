@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://t483jnmq7p0l"]
 
-[ext_resource type="Texture2D" uid="uid://cgc8sp140s11w" path="res://Assets/GenericProps/Cone/Bollard_Bollard_Albedo.png" id="1_hy5gw"]
+[ext_resource type="Material" uid="uid://sbtchdwnv0k5" path="res://Assets/GenericProps/Bollard/Bollard_Material.tres" id="1_4adg1"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_jle7v"]
 points = PackedVector3Array(-0.5, 0, -9.78708e-05, -0.353563, 0, -0.353563, -0.353563, 0, 0.353465, -0.5, 1.89996, -9.78708e-05, -0.353563, 1.89996, -0.353563, -9.799e-05, 0, -0.5, -9.799e-05, 0, 0.5, -0.353563, 1.89996, 0.353465, -0.277114, 2, 0.276919, -0.391836, 2, -9.78708e-05, -0.277114, 2, -0.277114, -9.799e-05, 1.89996, -0.5, 0.353465, 0, -0.353563, 0.353465, 0, 0.353465, -9.799e-05, 1.89996, 0.5, -9.799e-05, 2, 0.391738, -9.799e-05, 2, -0.391836, 0.276918, 2, -0.277114, 0.353465, 1.89996, -0.353563, 0.5, 0, -9.78708e-05, 0.353465, 1.89996, 0.353465, 0.276918, 2, 0.276919, 0.391738, 2, -9.78708e-05, 0.5, 1.89996, -9.78708e-05)
@@ -8,7 +8,6 @@ points = PackedVector3Array(-0.5, 0, -9.78708e-05, -0.353563, 0, -0.353563, -0.3
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mdoed"]
 resource_name = "Bollard"
 cull_mode = 2
-albedo_texture = ExtResource("1_hy5gw")
 roughness = 0.5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_ll5ry"]
@@ -57,3 +56,4 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 [node name="Cylinder_001" type="MeshInstance3D" parent="Bollard"]
 mesh = SubResource("ArrayMesh_5kma1")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("1_4adg1")

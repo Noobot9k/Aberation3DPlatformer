@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b44xu4j7vrtsk"
-path="res://.godot/imported/Bollard.glb-b827d44918b4d1b967f25a2797953d15.scn"
+uid="uid://b8ea4x86lu2yx"
+path="res://.godot/imported/Handrail_Stairs.glb-14727219b574252b39f6b1ae40327bf0.scn"
 
 [deps]
 
-source_file="res://Assets/GenericProps/Bollard/Bollard.glb"
-dest_files=["res://.godot/imported/Bollard.glb-b827d44918b4d1b967f25a2797953d15.scn"]
+source_file="res://Assets/GenericProps/Handrails/Handrail_Stairs.glb"
+dest_files=["res://.godot/imported/Handrail_Stairs.glb-14727219b574252b39f6b1ae40327bf0.scn"]
 
 [params]
 
@@ -29,13 +29,6 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 import_script/path=""
-_subresources={
-"materials": {
-"Bollard": {
-"use_external/enabled": true,
-"use_external/path": "res://Assets/GenericProps/Bollard/Bollard_Material.tres"
-}
-}
-}
+_subresources={}
 gltf/naming_version=1
 gltf/embedded_image_handling=1

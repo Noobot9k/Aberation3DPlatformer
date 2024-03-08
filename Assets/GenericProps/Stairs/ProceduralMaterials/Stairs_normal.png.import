@@ -2,18 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0bqdd6ieksmh"
-path.s3tc="res://.godot/imported/Tree_Tree_Leaves_Albedo.png-d7d7c54611a1606443e27fd9c894a750.s3tc.ctex"
+uid="uid://dxto3u2trxpu4"
+path.s3tc="res://.godot/imported/Stairs_normal.png-934af0e713dcfd59bec1160bce75c87a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={}
 
 [deps]
 
-source_file="res://Assets/GenericProps/Tree/Tree_Tree_Leaves_Albedo.png"
-dest_files=["res://.godot/imported/Tree_Tree_Leaves_Albedo.png-d7d7c54611a1606443e27fd9c894a750.s3tc.ctex"]
+source_file="res://Assets/GenericProps/Stairs/ProceduralMaterials/Stairs_normal.png"
+dest_files=["res://.godot/imported/Stairs_normal.png-934af0e713dcfd59bec1160bce75c87a.s3tc.ctex"]
 
 [params]
 
@@ -21,12 +20,12 @@ compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/normal_map=0
+compress/normal_map=1
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=0
-roughness/src_normal=""
+roughness/mode=1
+roughness/src_normal="res://Assets/GenericProps/Stairs/ProceduralMaterials/Stairs_normal.png"
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

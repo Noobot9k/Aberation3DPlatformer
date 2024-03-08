@@ -1,0 +1,184 @@
+{
+	"connections": [
+		{
+			"from": "fbm2",
+			"from_port": 0,
+			"to": "tones_step",
+			"to_port": 0
+		},
+		{
+			"from": "uniform_2",
+			"from_port": 0,
+			"to": "blend2",
+			"to_port": 0
+		},
+		{
+			"from": "uniform",
+			"from_port": 0,
+			"to": "blend2",
+			"to_port": 1
+		},
+		{
+			"from": "tones_step",
+			"from_port": 0,
+			"to": "blend2",
+			"to_port": 2
+		},
+		{
+			"from": "blend2",
+			"from_port": 0,
+			"to": "swirl",
+			"to_port": 0
+		},
+		{
+			"from": "swirl",
+			"from_port": 0,
+			"to": "Material",
+			"to_port": 0
+		}
+	],
+	"label": "Graph",
+	"longdesc": "",
+	"name": "@@718",
+	"node_position": {
+		"x": 0,
+		"y": 0
+	},
+	"nodes": [
+		{
+			"export_last_target": "Godot/Godot 4 Standard",
+			"export_paths": {
+				"Godot/Godot 4 Standard": "D:/GitHub/Aberation3DPlatformer/Assets/GenericProps/Tree/ProceduralTextures/Tree_Trunk"
+			},
+			"name": "Material",
+			"node_position": {
+				"x": 456,
+				"y": -254
+			},
+			"parameters": {
+				"albedo_color": {
+					"a": 1,
+					"b": 1,
+					"g": 1,
+					"r": 1,
+					"type": "Color"
+				},
+				"ao": 1,
+				"depth_scale": 0.5,
+				"emission_energy": 1,
+				"flags_transparent": true,
+				"metallic": 0,
+				"normal": 1,
+				"roughness": 1,
+				"size": 9,
+				"sss": 1
+			},
+			"seed_int": 0,
+			"type": "material"
+		},
+		{
+			"name": "fbm2",
+			"node_position": {
+				"x": -625,
+				"y": -155.5
+			},
+			"parameters": {
+				"folds": 0,
+				"iterations": 5,
+				"noise": 1,
+				"offset": 0,
+				"persistence": 0.5,
+				"scale_x": 15,
+				"scale_y": 5
+			},
+			"seed_int": 0,
+			"type": "fbm2"
+		},
+		{
+			"name": "tones_step",
+			"node_position": {
+				"x": -367,
+				"y": -155.5
+			},
+			"parameters": {
+				"invert": false,
+				"value": 0.5,
+				"width": 0.03
+			},
+			"seed_int": 0,
+			"type": "tones_step"
+		},
+		{
+			"name": "uniform",
+			"node_position": {
+				"x": -307,
+				"y": -221.5
+			},
+			"parameters": {
+				"color": {
+					"a": 1,
+					"b": 0.6,
+					"g": 0.698039,
+					"r": 0.94902,
+					"type": "Color"
+				}
+			},
+			"seed_int": 0,
+			"type": "uniform"
+		},
+		{
+			"name": "uniform_2",
+			"node_position": {
+				"x": -309.5,
+				"y": -284.5
+			},
+			"parameters": {
+				"color": {
+					"a": 1,
+					"b": 0.505882,
+					"g": 0.505882,
+					"r": 0.839216,
+					"type": "Color"
+				}
+			},
+			"seed_int": 0,
+			"type": "uniform"
+		},
+		{
+			"generic_size": 1,
+			"name": "blend2",
+			"node_position": {
+				"x": -123,
+				"y": -242.5
+			},
+			"parameters": {
+				"amount1": 0.5,
+				"blend_type1": 0
+			},
+			"seed_int": 0,
+			"type": "blend2"
+		},
+		{
+			"name": "swirl",
+			"node_position": {
+				"x": 182,
+				"y": -246.5
+			},
+			"parameters": {
+				"angle": 360,
+				"cx": 0,
+				"cy": 0,
+				"radius": 0.5,
+				"tile": false
+			},
+			"seed_int": 0,
+			"type": "swirl"
+		}
+	],
+	"parameters": {
+
+	},
+	"seed_int": 0,
+	"shortdesc": "",
+	"type": "graph"
+}

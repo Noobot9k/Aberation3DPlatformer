@@ -2,18 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6v7s6651iol0"
-path.s3tc="res://.godot/imported/Bollard_Bollard_Albedo.png-51dc7bca62d84cab02ca33bf53d40149.s3tc.ctex"
+uid="uid://dov6ebnulccv0"
+path.s3tc="res://.godot/imported/Handrail_albedo.png-15c1494e85b8194bec3506a9a96145a0.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={}
 
 [deps]
 
-source_file="res://Assets/GenericProps/Bollard/Bollard_Bollard_Albedo.png"
-dest_files=["res://.godot/imported/Bollard_Bollard_Albedo.png-51dc7bca62d84cab02ca33bf53d40149.s3tc.ctex"]
+source_file="res://Assets/GenericProps/Handrails/ProceduralMaterials/Handrail_albedo.png"
+dest_files=["res://.godot/imported/Handrail_albedo.png-15c1494e85b8194bec3506a9a96145a0.s3tc.ctex"]
 
 [params]
 

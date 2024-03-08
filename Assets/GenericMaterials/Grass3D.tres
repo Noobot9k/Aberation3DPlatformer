@@ -1,0 +1,54 @@
+[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://c18ot2umc6bkq"]
+
+[ext_resource type="Texture2D" uid="uid://bopvfktoc2ax3" path="res://Assets/GenericProps/Tree/ProceduralTextures/Tree_Leaves_albedo.png" id="1_wn5t8"]
+[ext_resource type="Texture2D" uid="uid://dfukfduff2pib" path="res://Assets/GenericProps/Tree/ProceduralTextures/Tree_Leaves_normal.png" id="2_ekgkk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fc7pm"]
+transparency = 2
+alpha_scissor_threshold = 0.75
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("1_wn5t8")
+normal_enabled = true
+normal_texture = ExtResource("2_ekgkk")
+uv1_scale = Vector3(0.125, 0.125, 0.125)
+uv1_triplanar = true
+uv1_world_triplanar = true
+grow = true
+grow_amount = 0.3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bt7yu"]
+next_pass = SubResource("StandardMaterial3D_fc7pm")
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("1_wn5t8")
+normal_enabled = true
+normal_texture = ExtResource("2_ekgkk")
+uv1_scale = Vector3(0.125, 0.125, 0.125)
+uv1_triplanar = true
+uv1_world_triplanar = true
+grow = true
+grow_amount = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_td4xy"]
+next_pass = SubResource("StandardMaterial3D_bt7yu")
+transparency = 2
+alpha_scissor_threshold = 0.25
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("1_wn5t8")
+normal_enabled = true
+normal_texture = ExtResource("2_ekgkk")
+uv1_scale = Vector3(0.125, 0.125, 0.125)
+uv1_triplanar = true
+uv1_world_triplanar = true
+grow = true
+grow_amount = 0.1
+
+[resource]
+next_pass = SubResource("StandardMaterial3D_td4xy")
+albedo_texture = ExtResource("1_wn5t8")
+normal_enabled = true
+normal_texture = ExtResource("2_ekgkk")
+uv1_scale = Vector3(0.125, 0.125, 0.125)
+uv1_triplanar = true
+uv1_world_triplanar = true

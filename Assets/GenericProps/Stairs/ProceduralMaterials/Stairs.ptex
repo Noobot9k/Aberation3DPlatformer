@@ -13,12 +13,6 @@
 			"to_port": 1
 		},
 		{
-			"from": "math_5",
-			"from_port": 0,
-			"to": "tones_step",
-			"to_port": 0
-		},
-		{
 			"from": "tones_step",
 			"from_port": 0,
 			"to": "blend2_2",
@@ -59,12 +53,6 @@
 			"from_port": 0,
 			"to": "Material",
 			"to_port": 0
-		},
-		{
-			"from": "normal_map2",
-			"from_port": 0,
-			"to": "Material",
-			"to_port": 4
 		},
 		{
 			"from": "math_2",
@@ -139,12 +127,6 @@
 			"to_port": 1
 		},
 		{
-			"from": "bricks3",
-			"from_port": 0,
-			"to": "math_7",
-			"to_port": 1
-		},
-		{
 			"from": "tones_map",
 			"from_port": 0,
 			"to": "math_7",
@@ -167,6 +149,54 @@
 			"from_port": 0,
 			"to": "normal_map2",
 			"to_port": 0
+		},
+		{
+			"from": "image",
+			"from_port": 0,
+			"to": "math_3",
+			"to_port": 1
+		},
+		{
+			"from": "math_3",
+			"from_port": 0,
+			"to": "blend2_6",
+			"to_port": 0
+		},
+		{
+			"from": "math_5",
+			"from_port": 0,
+			"to": "blend2_6",
+			"to_port": 1
+		},
+		{
+			"from": "blend2_6",
+			"from_port": 0,
+			"to": "tones_step",
+			"to_port": 0
+		},
+		{
+			"from": "image_2",
+			"from_port": 0,
+			"to": "blend2_7",
+			"to_port": 1
+		},
+		{
+			"from": "blend2_7",
+			"from_port": 0,
+			"to": "Material",
+			"to_port": 4
+		},
+		{
+			"from": "normal_map2",
+			"from_port": 0,
+			"to": "normal_map_convert_2",
+			"to_port": 0
+		},
+		{
+			"from": "normal_map_convert_2",
+			"from_port": 0,
+			"to": "blend2_7",
+			"to_port": 0
 		}
 	],
 	"label": "Graph",
@@ -180,7 +210,7 @@
 		{
 			"export_last_target": "Godot/Godot 4 Standard",
 			"export_paths": {
-				"Godot/Godot 4 Standard": "D:\\GitHub\\Aberation3DPlatformer\\ProceduralTextures\\Concrete"
+				"Godot/Godot 4 Standard": "D:/GitHub/Aberation3DPlatformer/ProceduralTextures/Concrete_Crackless"
 			},
 			"name": "Material",
 			"node_position": {
@@ -220,8 +250,8 @@
 				"noise": 9,
 				"offset": 0,
 				"persistence": 0.5,
-				"scale_x": 30,
-				"scale_y": 30
+				"scale_x": 60,
+				"scale_y": 60
 			},
 			"seed_int": 976030144,
 			"type": "fbm2"
@@ -259,8 +289,8 @@
 		{
 			"name": "fbm2_2",
 			"node_position": {
-				"x": -1546.220581,
-				"y": -335.355438
+				"x": -1741.139038,
+				"y": -345.723419
 			},
 			"parameters": {
 				"folds": 1,
@@ -268,8 +298,8 @@
 				"noise": 9,
 				"offset": 0,
 				"persistence": 0.5,
-				"scale_x": 8,
-				"scale_y": 8
+				"scale_x": 16,
+				"scale_y": 16
 			},
 			"seed_int": 0,
 			"type": "fbm2"
@@ -286,8 +316,8 @@
 				"noise": 1,
 				"offset": 0.66,
 				"persistence": 0,
-				"scale_x": 5,
-				"scale_y": 5
+				"scale_x": 10,
+				"scale_y": 10
 			},
 			"seed_int": 4044263424,
 			"type": "fbm2"
@@ -311,8 +341,8 @@
 		{
 			"name": "math_5",
 			"node_position": {
-				"x": -1015.231018,
-				"y": -343.534546
+				"x": -1220.566162,
+				"y": -353.208099
 			},
 			"parameters": {
 				"clamp": false,
@@ -331,7 +361,7 @@
 			},
 			"parameters": {
 				"invert": false,
-				"value": 0.95,
+				"value": 0.37,
 				"width": 0.04
 			},
 			"seed_int": 0,
@@ -390,8 +420,8 @@
 		{
 			"name": "math_6",
 			"node_position": {
-				"x": -1275.551025,
-				"y": -344.981049
+				"x": -1470.46936,
+				"y": -355.34906
 			},
 			"parameters": {
 				"clamp": false,
@@ -540,8 +570,8 @@
 				"noise": 9,
 				"offset": 0,
 				"persistence": 0.5,
-				"scale_x": 150,
-				"scale_y": 150
+				"scale_x": 300,
+				"scale_y": 300
 			},
 			"seed_int": 2438752000,
 			"type": "fbm2"
@@ -584,7 +614,7 @@
 			"parameters": {
 				"clamp": true,
 				"default_in1": 0,
-				"default_in2": 0,
+				"default_in2": 1,
 				"op": 13
 			},
 			"seed_int": 0,
@@ -604,6 +634,89 @@
 			},
 			"seed_int": 0,
 			"type": "math"
+		},
+		{
+			"name": "image",
+			"node_position": {
+				"x": -1458.108276,
+				"y": -538.113342
+			},
+			"parameters": {
+				"clamp": false,
+				"fix_ar": false,
+				"image": "D:/GitHub/Aberation3DPlatformer/Assets/GenericProps/Stairs/Stairs_AO.png"
+			},
+			"seed_int": 0,
+			"type": "image"
+		},
+		{
+			"name": "math_3",
+			"node_position": {
+				"x": -1221.161743,
+				"y": -534.804077
+			},
+			"parameters": {
+				"clamp": false,
+				"default_in1": 1,
+				"default_in2": 0,
+				"op": 1
+			},
+			"seed_int": 0,
+			"type": "math"
+		},
+		{
+			"generic_size": 1,
+			"name": "blend2_6",
+			"node_position": {
+				"x": -960.090881,
+				"y": -452.786438
+			},
+			"parameters": {
+				"amount1": 0.23,
+				"blend_type1": 0
+			},
+			"seed_int": 0,
+			"type": "blend2"
+		},
+		{
+			"name": "image_2",
+			"node_position": {
+				"x": -95.402817,
+				"y": 505.656067
+			},
+			"parameters": {
+				"clamp": false,
+				"fix_ar": false,
+				"image": "D:/GitHub/Aberation3DPlatformer/Assets/GenericProps/Stairs/Stairs_Normal.png"
+			},
+			"seed_int": 0,
+			"type": "image"
+		},
+		{
+			"generic_size": 1,
+			"name": "blend2_7",
+			"node_position": {
+				"x": 260.087158,
+				"y": 331.022797
+			},
+			"parameters": {
+				"amount1": 0.5,
+				"blend_type1": 0
+			},
+			"seed_int": 0,
+			"type": "blend2"
+		},
+		{
+			"name": "normal_map_convert_2",
+			"node_position": {
+				"x": 157.309372,
+				"y": 265.050568
+			},
+			"parameters": {
+				"op": 0
+			},
+			"seed_int": 0,
+			"type": "normal_map_convert"
 		}
 	],
 	"parameters": {

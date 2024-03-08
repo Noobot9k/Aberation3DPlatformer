@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0rnxgxurr51e"
-path="res://.godot/imported/Tree_Trunk_Albedo.png-cb4ca58b61c96be2c5efca771ed7d262.ctex"
+uid="uid://bg8hpdpjiqkg0"
+path="res://.godot/imported/Stairs_AO.png-f59953bda124cba7902ef99da0900cf1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/GenericProps/Tree/Tree_Trunk_Albedo.png"
-dest_files=["res://.godot/imported/Tree_Trunk_Albedo.png-cb4ca58b61c96be2c5efca771ed7d262.ctex"]
+source_file="res://Assets/GenericProps/Stairs/Stairs_AO.png"
+dest_files=["res://.godot/imported/Stairs_AO.png-f59953bda124cba7902ef99da0900cf1.ctex"]
 
 [params]
 
