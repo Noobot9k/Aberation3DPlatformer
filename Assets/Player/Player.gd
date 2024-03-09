@@ -27,7 +27,7 @@ class_name CharacterController
 @export var gravity_wall_running : float = 10
 @export var gravity_wall_running_falling : float = 5
 
-@export var visualRotationLerpSpeed : float = .25
+@export var visualRotationLerpSpeed : float = 16
 
 var last_is_on_floor : bool = false
 var last_is_wallrunning : bool = false
@@ -51,7 +51,12 @@ func project_on_plane(point : Vector3, plane : Vector3):
 func _physics_process(delta):
 	var tick : float = ScaledTime.CurrentTime # Time.get_unix_time_from_system()
 	
-	var wall_angle : float = get_wall_normal().angle_to(Vector3.UP)
+	#var gravity_scale = PhysicsServer3D.body_get_param(self, PhysicsServer3D.BODY_PARAM_GRAVITY_SCALE)
+	var physics_space : RID = PhysicsServer3D.body_get_space(self)
+	var gravity_vector : Vector3 = PhysicsServer3D.area_get_param(physics_space, PhysicsServer3D.AREA_PARAM_GRAVITY_VECTOR)
+	up_direction = -gravity_vector.normalized()
+	
+	var wall_angle : float = get_wall_normal().angle_to(up_direction)
 	is_wall_running = is_on_wall_only() and wall_angle < wall_run_angle_max and wall_angle > wall_run_angle_min and Ability_Wallrun
 	
 	if is_on_floor(): last_is_on_floor_tick = tick
@@ -59,19 +64,30 @@ func _physics_process(delta):
 	
 	# gravity
 	if not is_on_floor():
+		var velocity_vertical_signed : float = velocity.project(up_direction).length() * velocity.project(up_direction).normalized().dot(up_direction) # velocity.y
 		if is_wall_running: # and velocity.y < 0:
-			if velocity.y > 0:
-				velocity.y -= gravity_wall_running * delta
+			if velocity_vertical_signed > 0:
+				#velocity.y -= gravity_wall_running * delta
+				velocity += gravity_vector * gravity_wall_running * delta
 			else:
-				velocity.y -= gravity_wall_running_falling * delta
+				#velocity.y -= gravity_wall_running_falling * delta
+				velocity +=  gravity_vector * gravity_wall_running_falling * delta
 			
 			var maxJumpHeight = 0.5 * (jump_force * jump_force / gravity_jumping) # calculate normal max jump height
 			var maxVertVel = sqrt(2*gravity_wall_running*maxJumpHeight) # clamp max vertical velocity to not exceed normal jump height
-			velocity.y = clamp(velocity.y, -maxVertVel, maxVertVel)
-		elif velocity.y >= 0 and Input.is_action_pressed("jump"):
-			velocity.y -= gravity_jumping * delta
+			
+			#velocity.y = clamp(velocity.y, -maxVertVel, maxVertVel)
+			# these 3 lines do the same thing as the single line above but indipendent of which way is down.
+			var projectedOnVector = velocity.project(gravity_vector.normalized())
+			var projectedOnPlane = project_on_plane(velocity, gravity_vector.normalized())
+			velocity = projectedOnPlane + projectedOnVector.limit_length(maxVertVel)
+			
+		elif velocity_vertical_signed >= 0 and Input.is_action_pressed("jump"):
+			#velocity.y -= gravity_jumping * delta
+			velocity += gravity_vector * gravity_jumping * delta
 		else:
-			velocity.y -= gravity_falling * delta
+			#velocity.y -= gravity_falling * delta
+			velocity += gravity_vector * gravity_falling * delta
 	
 	# jumping
 	if Input.is_action_just_pressed("jump"):
@@ -79,14 +95,16 @@ func _physics_process(delta):
 	
 	if tick - jump_input_last_tick < jump_bufferMS/1000 and tick - jump_last_tick > jump_cooldownMS/1000:
 		if (is_wall_running and last_is_wallrunning):# or tick - last_is_wallrunning_tick < jump_coyote_timingMS/1000:
-			velocity = (get_wall_normal() + Vector3.UP).normalized() * jump_off_wall_force
+			velocity = (get_wall_normal() + up_direction).normalized() * jump_off_wall_force
 			jump_input_last_tick = 0
 			jump_last_tick = tick
 			Jumped.emit()
 		elif (is_on_floor() and last_is_on_floor) or tick - last_is_on_floor_tick < jump_coyote_timingMS/1000:
 			# Make sure the player is on the floor for at least 2 frames or the floating disk won't reset.
 			
-			velocity.y = jump_force
+			#velocity.y = jump_force
+			velocity = project_on_plane(velocity, up_direction) + up_direction * jump_force
+			
 			jump_input_last_tick = 0
 			jump_last_tick = tick
 			Jumped.emit()
@@ -98,10 +116,10 @@ func _physics_process(delta):
 	# walking
 	var input = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 	move_vector = Vector3(input.x, 0, input.y)
-	var camPivot = camera.get_parent_node_3d().get_parent_node_3d()
-	var cameraFlattenedTransform : Transform3D = Transform3D().looking_at((camera.global_basis * Vector3.FORWARD) * Vector3(1,0,1))
-	move_vector = cameraFlattenedTransform.basis * move_vector #camPivot.to_global(move_vector) - camPivot.to_global(Vector3.ZERO)
-	if is_wall_running and move_vector.length() > 0:
+	#var camPivot = camera.get_parent_node_3d().get_parent_node_3d()
+	var cameraFlattenedTransform : Basis = Basis.looking_at(project_on_plane(camera.global_basis * Vector3.FORWARD, up_direction), up_direction)
+	move_vector = cameraFlattenedTransform * move_vector #camPivot.to_global(move_vector) - camPivot.to_global(Vector3.ZERO)
+	if is_wall_running and project_on_plane(move_vector, get_wall_normal()).length() > 0.1:
 		move_vector = project_on_plane(move_vector, get_wall_normal()).normalized() * move_vector.length()
 	
 	var rateOfVelocityChange : float = deceleration
@@ -117,8 +135,9 @@ func _physics_process(delta):
 		var blend = 1-pow(0.5, delta * runningSlerp_TurnRate * (1+inverseSpeedAlpha*runningSlerp_LowSpeedMultiplier))
 		turnedVelocity = turnedVelocity.slerp(move_vector.normalized() * turnedVelocity.length(), blend)
 	
-	velocity.x = move_toward(turnedVelocity.x, move_vector.x * move_speed, rateOfVelocityChange * delta)
-	velocity.z = move_toward(turnedVelocity.z, move_vector.z * move_speed, rateOfVelocityChange * delta)
+	#velocity.x = move_toward(turnedVelocity.x, move_vector.x * move_speed, rateOfVelocityChange * delta)
+	#velocity.z = move_toward(turnedVelocity.z, move_vector.z * move_speed, rateOfVelocityChange * delta)
+	velocity = velocity.move_toward(velocity.project(up_direction) + move_vector * move_speed, rateOfVelocityChange * 2 * delta)
 	
 	# wall running
 	if is_wall_running and tick - jump_last_tick > jump_cooldownMS/1000:
@@ -130,9 +149,13 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	# rotate to face walking direction
-	#if input.length() > 0:
-	#	facing_angle = Vector2(velocity.z, velocity.x).angle()
-	#	model.rotation.y = lerp_angle(model.rotation.y, facing_angle, visualRotationLerpSpeed)
+	var visualRotationBlend = 1-pow(0.5, delta * visualRotationLerpSpeed)
+	if project_on_plane(velocity, up_direction).length() > 0.1: # input.length() > 0:
+		#facing_angle = Vector2(velocity.z, velocity.x).angle()
+		#model.rotation.y = lerp_angle(model.rotation.y, facing_angle, visualRotationLerpSpeed)
+		global_basis = global_basis.slerp(Basis.looking_at(project_on_plane(velocity, up_direction), up_direction), visualRotationBlend)
+	else:
+		global_basis = global_basis.slerp(Basis.looking_at(global_basis * Vector3.FORWARD, up_direction), visualRotationBlend)
 	
 	# void out
 	if global_position.y < -5:

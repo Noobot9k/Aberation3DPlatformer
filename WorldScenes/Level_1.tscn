@@ -1,22 +1,44 @@
-[gd_scene load_steps=7 format=3 uid="uid://c7gfldted8f86"]
+[gd_scene load_steps=9 format=3 uid="uid://c7gfldted8f86"]
 
-[ext_resource type="Script" path="res://Assets/LevelLogic/LevelScript.gd" id="1_nwb02"]
+[ext_resource type="Script" path="res://Assets/LevelLogic/LevelLogic_GravitySwitch.gd" id="1_fe1es"]
 [ext_resource type="PackedScene" uid="uid://ddgrbo660k2vn" path="res://Assets/Objects/required.tscn" id="1_yy6ik"]
 [ext_resource type="Material" uid="uid://c18ot2umc6bkq" path="res://Assets/GenericMaterials/ProceduralTextures/Grass3D.tres" id="2_20k8q"]
 [ext_resource type="Material" uid="uid://ckfi4pb7d3ipl" path="res://Assets/GenericMaterials/ProceduralTextures/Concrete.tres" id="2_gbakv"]
 [ext_resource type="PackedScene" uid="uid://cxp12vnwt4x12" path="res://Assets/GenericProps/Stairs.tscn" id="4_1dr5k"]
 [ext_resource type="PackedScene" uid="uid://bvb55oy4vsoqa" path="res://Assets/GenericProps/handrail_stairs.tscn" id="6_phg4u"]
+[ext_resource type="PackedScene" uid="uid://deihe84wxx3g3" path="res://Assets/Objects/Pickups/LevelCompletionPiece.tscn" id="7_xenws"]
+[ext_resource type="PackedScene" uid="uid://f0phmcgnibdw" path="res://Assets/GenericProps/Cone.tscn" id="8_oh1yn"]
 
 [node name="Level_1" type="Node3D" groups=["level_handler"]]
-script = ExtResource("1_nwb02")
-completion_pickups_required = 1
+script = ExtResource("1_fe1es")
+gravity_vectors_per_pickup = Array[Vector3]([Vector3(1, 0, 0), Vector3(-1, 0, 0), Vector3(0, 1, 0)])
+completion_pickups_required = 4
 
 [node name="Required" parent="." instance=ExtResource("1_yy6ik")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 material_override = ExtResource("2_gbakv")
+use_collision = true
+size = Vector3(50, 1, 50)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.5, 0)
+material_override = ExtResource("2_gbakv")
 cast_shadow = 0
+use_collision = true
+size = Vector3(50, 1, 50)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -14, 4.5, 0)
+material_override = ExtResource("2_gbakv")
+use_collision = true
+size = Vector3(50, 1, 50)
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 17, 4.5, 0)
+material_override = ExtResource("2_gbakv")
 use_collision = true
 size = Vector3(50, 1, 50)
 
@@ -56,6 +78,12 @@ material_override = ExtResource("2_gbakv")
 use_collision = true
 size = Vector3(4, 1, 4)
 
+[node name="CSGBox3D11" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 3.5, -6)
+material_override = ExtResource("2_gbakv")
+use_collision = true
+size = Vector3(4, 1, 4)
+
 [node name="CSGBox3D6" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -10)
 material_override = ExtResource("2_20k8q")
@@ -88,3 +116,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -5)
 
 [node name="Handrail_Stairs2" parent="." instance=ExtResource("6_phg4u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -5)
+
+[node name="Pickup" parent="." instance=ExtResource("7_xenws")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.73276, 0, -1.3687)
+
+[node name="Pickup2" parent="." instance=ExtResource("7_xenws")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.993, 0, -2.03407)
+
+[node name="Pickup3" parent="." instance=ExtResource("7_xenws")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.280755, 8, 5.58428)
+
+[node name="Cone" parent="." instance=ExtResource("8_oh1yn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.1425, -9.53674e-07, -5.32189)

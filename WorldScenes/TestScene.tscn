@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://vt4t5avvvbk3"]
 
-[ext_resource type="Script" path="res://Assets/LevelLogic/LevelScript.gd" id="1_bch7c"]
+[ext_resource type="Script" path="res://Assets/LevelLogic/LevelLogic.gd" id="1_bch7c"]
 [ext_resource type="PackedScene" uid="uid://deihe84wxx3g3" path="res://Assets/Objects/Pickups/LevelCompletionPiece.tscn" id="2_ap41l"]
 [ext_resource type="PackedScene" uid="uid://ddgrbo660k2vn" path="res://Assets/Objects/required.tscn" id="2_y1fdj"]
 [ext_resource type="Material" uid="uid://ckfi4pb7d3ipl" path="res://Assets/GenericMaterials/ProceduralTextures/Concrete.tres" id="4_iwv0f"]
