@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5ao2n6h5h3j7"]
+
+[ext_resource type="Material" uid="uid://ckfi4pb7d3ipl" path="res://Assets/GenericMaterials/ProceduralTextures/Concrete.tres" id="1_dhusu"]
+[ext_resource type="PackedScene" uid="uid://4nqmmlqc6ndo" path="res://Assets/Structures/bridge_section.tscn" id="2_igteh"]
+
+[node name="bridge_section_crossbeams" type="Node3D"]
+
+[node name="CSGBox3D23" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 10)
+material_override = ExtResource("1_dhusu")
+use_collision = true
+size = Vector3(24, 2, 2)
+
+[node name="CSGBox3D24" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 6)
+material_override = ExtResource("1_dhusu")
+use_collision = true
+size = Vector3(24, 2, 2)
+
+[node name="CSGBox3D25" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 2)
+material_override = ExtResource("1_dhusu")
+use_collision = true
+size = Vector3(24, 2, 2)
+
+[node name="CSGBox3D26" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -2)
+material_override = ExtResource("1_dhusu")
+use_collision = true
+size = Vector3(24, 2, 2)
+
+[node name="CSGBox3D27" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -6)
+material_override = ExtResource("1_dhusu")
+use_collision = true
+size = Vector3(24, 2, 2)
+
+[node name="CSGBox3D32" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -10)
+material_override = ExtResource("1_dhusu")
+use_collision = true
+size = Vector3(24, 2, 2)
+
+[node name="CSGBox3D33" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -14)
+material_override = ExtResource("1_dhusu")
+use_collision = true
+size = Vector3(24, 2, 2)
+
+[node name="bridge_section" parent="." instance=ExtResource("2_igteh")]

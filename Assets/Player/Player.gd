@@ -158,7 +158,7 @@ func _physics_process(delta):
 		global_basis = global_basis.slerp(Basis.looking_at(global_basis * Vector3.FORWARD, up_direction), visualRotationBlend)
 	
 	# void out
-	if global_position.y < -5:
+	if global_position.y < -30:
 		game_over()
 
 func game_over():

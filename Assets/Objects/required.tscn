@@ -18,6 +18,10 @@ ambient_light_source = 2
 ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_sky_contribution = 0.8
 ambient_light_energy = 0.24
+fog_enabled = true
+fog_density = 0.025
+fog_height = -30.0
+fog_height_density = 16.0
 
 [node name="Required" type="Node3D"]
 

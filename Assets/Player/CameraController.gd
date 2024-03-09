@@ -3,8 +3,8 @@ extends Camera3D
 @export var CameraFocus : CharacterBody3D
 @export var FocusOffset : Vector3 = Vector3(0,1,0)
 @export var Zoom : float = 6
-@export var Angle_Pitch : float = deg_to_rad(20)
-@export var Angle_Yaw : float = deg_to_rad(0)
+@export var Angle_Pitch : float = 20
+@export var Angle_Yaw : float = 0
 @export var LerpSpeed_Horizontal : float = 5
 @export var LerpSpeed_Vertical : float = .5
 @export var CameraLeadTime_Horizontal : float = .333
@@ -31,7 +31,7 @@ func _process(delta):
 	
 	var lead_horizontal : Vector3 = project_on_plane(CameraFocus.velocity * CameraLeadTime_Horizontal, up_direction)
 	#var lead_vertical : Vector3 = (CameraFocus.velocity * CameraLeadTime_Vertical).project(up_direction)
-	var offset : Vector3 = last_gravity_basis * Vector3.FORWARD.rotated(Vector3.LEFT, Angle_Pitch).rotated(Vector3.UP,  Angle_Yaw)
+	var offset : Vector3 = last_gravity_basis * Vector3.FORWARD.rotated(Vector3.LEFT, deg_to_rad(Angle_Pitch)).rotated(Vector3.UP,  deg_to_rad(Angle_Yaw))
 	var focusPos : Vector3 = CameraFocus.global_position + last_gravity_basis * FocusOffset + lead_horizontal #+ lead_vertical
 	
 	var newPos : Vector3 = project_on_plane(currentPos, up_direction).lerp(project_on_plane(focusPos, up_direction), LerpSpeed_Horizontal * delta)
