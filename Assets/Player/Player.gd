@@ -137,7 +137,7 @@ func _physics_process(delta):
 	
 	#velocity.x = move_toward(turnedVelocity.x, move_vector.x * move_speed, rateOfVelocityChange * delta)
 	#velocity.z = move_toward(turnedVelocity.z, move_vector.z * move_speed, rateOfVelocityChange * delta)
-	velocity = velocity.move_toward(velocity.project(up_direction) + move_vector * move_speed, rateOfVelocityChange * 2 * delta)
+	velocity = velocity.move_toward(velocity.project(up_direction) + move_vector * move_speed, rateOfVelocityChange * delta)
 	
 	# wall running
 	if is_wall_running and tick - jump_last_tick > jump_cooldownMS/1000:

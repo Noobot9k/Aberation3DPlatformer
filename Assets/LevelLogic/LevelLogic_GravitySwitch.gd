@@ -13,3 +13,4 @@ func _ready():
 
 func set_global_gravity_vector(new_vector : Vector3):
 	PhysicsServer3D.area_set_param(get_world_3d().space, PhysicsServer3D.AREA_PARAM_GRAVITY_VECTOR, new_vector)
+	get_tree().call_group("DecorationDebris", "set_sleeping",  false)

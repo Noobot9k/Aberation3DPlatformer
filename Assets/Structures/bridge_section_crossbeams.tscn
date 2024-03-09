@@ -6,43 +6,43 @@
 [node name="bridge_section_crossbeams" type="Node3D"]
 
 [node name="CSGBox3D23" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 10)
 material_override = ExtResource("1_dhusu")
 use_collision = true
 size = Vector3(24, 2, 2)
 
 [node name="CSGBox3D24" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 6)
 material_override = ExtResource("1_dhusu")
 use_collision = true
 size = Vector3(24, 2, 2)
 
 [node name="CSGBox3D25" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 2)
 material_override = ExtResource("1_dhusu")
 use_collision = true
 size = Vector3(24, 2, 2)
 
 [node name="CSGBox3D26" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, -2)
 material_override = ExtResource("1_dhusu")
 use_collision = true
 size = Vector3(24, 2, 2)
 
 [node name="CSGBox3D27" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, -6)
 material_override = ExtResource("1_dhusu")
 use_collision = true
 size = Vector3(24, 2, 2)
 
 [node name="CSGBox3D32" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, -10)
 material_override = ExtResource("1_dhusu")
 use_collision = true
 size = Vector3(24, 2, 2)
 
 [node name="CSGBox3D33" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -14)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, -14)
 material_override = ExtResource("1_dhusu")
 use_collision = true
 size = Vector3(24, 2, 2)

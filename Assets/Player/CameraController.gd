@@ -12,7 +12,7 @@ extends Camera3D
 @export var ReferenceChangeLerpSpeed : float = 6
 
 var currentPos : Vector3
-var last_gravity_basis : Basis = Basis();
+var gravity_basis : Basis = Basis();
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,16 +23,17 @@ func _ready():
 func _process(delta):
 	#Angle_Pitch = deg_to_rad(sin(Time.get_unix_time_from_system()*2)*15)
 	
-	var up_direction : Vector3 = CameraFocus.up_direction
+	var up_direction_raw : Vector3 = CameraFocus.up_direction
 	
-	var gravity_basis : Basis = Basis.looking_at(Vector3.FORWARD, up_direction)
+	var gravity_basis_target : Basis = Basis.looking_at(Vector3.FORWARD, up_direction_raw)
 	var blend = 1-pow(0.5, delta * ReferenceChangeLerpSpeed)
-	last_gravity_basis = last_gravity_basis.slerp(gravity_basis, blend)
+	gravity_basis = gravity_basis.slerp(gravity_basis_target, blend)
+	var up_direction : Vector3 = gravity_basis * Vector3.UP
 	
 	var lead_horizontal : Vector3 = project_on_plane(CameraFocus.velocity * CameraLeadTime_Horizontal, up_direction)
 	#var lead_vertical : Vector3 = (CameraFocus.velocity * CameraLeadTime_Vertical).project(up_direction)
-	var offset : Vector3 = last_gravity_basis * Vector3.FORWARD.rotated(Vector3.LEFT, deg_to_rad(Angle_Pitch)).rotated(Vector3.UP,  deg_to_rad(Angle_Yaw))
-	var focusPos : Vector3 = CameraFocus.global_position + last_gravity_basis * FocusOffset + lead_horizontal #+ lead_vertical
+	var offset : Vector3 = Vector3.FORWARD.rotated(Vector3.UP,  deg_to_rad(Angle_Yaw)).rotated(gravity_basis * Vector3.LEFT, deg_to_rad(Angle_Pitch))
+	var focusPos : Vector3 = CameraFocus.global_position + gravity_basis * FocusOffset + lead_horizontal #+ lead_vertical
 	
 	var newPos : Vector3 = project_on_plane(currentPos, up_direction).lerp(project_on_plane(focusPos, up_direction), LerpSpeed_Horizontal * delta)
 	var focusPos_vertical : Vector3 = focusPos.project(up_direction)
