@@ -69,7 +69,7 @@ func _process(delta):
 			
 			var to_hitpoint : Vector3 = result.point - CameraFocus.global_position
 			var distance_to_wall : float = to_hitpoint.project(result.normal).length()
-			var target_offset : Vector3 = project_on_plane(offset, result.normal) + -result.normal * distance_to_wall
+			var target_offset : Vector3 = project_on_plane(offset, result.normal) + -result.normal * (distance_to_wall - view_occlusion_cast.shape.radius)
 			current_offset = current_offset.lerp(target_offset, obstruction_accomodation_blend)
 			
 			var newResult = refresh_view_occlusion_cast(target_offset)
