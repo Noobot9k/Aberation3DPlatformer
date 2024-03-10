@@ -18,12 +18,12 @@ sky_horizon_color = Color(0.490196, 0.686275, 1, 1)
 ground_horizon_color = Color(0.490196, 0.686275, 1, 1)
 sun_angle_max = 51.45
 
-[sub_resource type="Sky" id="Sky_1ab73"]
+[sub_resource type="Sky" id="Sky_xss5b"]
 sky_material = SubResource("ProceduralSkyMaterial_x1d7e")
 
 [sub_resource type="Environment" id="Environment_ki5ta"]
 background_mode = 2
-sky = SubResource("Sky_1ab73")
+sky = SubResource("Sky_xss5b")
 ambient_light_source = 2
 ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_sky_contribution = 0.8

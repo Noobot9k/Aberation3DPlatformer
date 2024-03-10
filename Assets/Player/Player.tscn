@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://d3ssasoo22ebe"]
+[gd_scene load_steps=8 format=3 uid="uid://d3ssasoo22ebe"]
 
 [ext_resource type="Script" path="res://Assets/Player/Player.gd" id="1_h77ly"]
 [ext_resource type="Script" path="res://addons/smoothing/smoothing.gd" id="2_38tiw"]
@@ -7,6 +7,9 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rw4mq"]
 radius = 0.4
 height = 1.8
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_je3e8"]
+radius = 0.15
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_r2h64"]
 radius = 0.4
@@ -35,6 +38,10 @@ top_level = true
 script = ExtResource("3_re78r")
 CameraFocus = NodePath("..")
 Angle_Yaw = 45.0
+
+[node name="ViewOcclusionCast" type="ShapeCast3D" parent="Camera3D"]
+top_level = true
+shape = SubResource("SphereShape3D_je3e8")
 
 [node name="Visual" type="Node3D" parent="."]
 
