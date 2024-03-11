@@ -1,9 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://deihe84wxx3g3"]
+[gd_scene load_steps=4 format=3 uid="uid://deihe84wxx3g3"]
 
 [ext_resource type="Script" path="res://Assets/Objects/Pickups/Pickup.gd" id="1_8gkp1"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_vpk3d"]
-radius = 2.0
+radius = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_77i4a"]
+emission_enabled = true
+emission = Color(1, 1, 0, 1)
+emission_energy_multiplier = 2.0
 
 [node name="Pickup" type="Area3D"]
 collision_mask = 2
@@ -15,5 +20,10 @@ shape = SubResource("SphereShape3D_vpk3d")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(0.853553, -0.146447, 0.5, 0.5, 0.5, -0.707107, -0.146447, 0.853553, 0.5, 0, 1, 0)
+material = SubResource("StandardMaterial3D_77i4a")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+light_color = Color(0.988235, 1, 0, 1)
 
 [connection signal="body_entered" from="." to="." method="touched"]
