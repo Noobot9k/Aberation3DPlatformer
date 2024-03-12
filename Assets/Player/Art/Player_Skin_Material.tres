@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c741cnhlptmja"]
+
+[resource]
+specular_mode = 1
+albedo_color = Color(1, 0.87451, 0.74902, 1)
+rim_enabled = true
+rim = 0.03
+rim_tint = 1.0

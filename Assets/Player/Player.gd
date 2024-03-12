@@ -1,6 +1,9 @@
 extends CharacterBody3D
 class_name CharacterController
 
+@export var particles_running : GPUParticles3D
+@export var particles_jumping : GPUParticles3D
+
 @export var Ability_Wallrun : bool = false
 
 @export var move_speed : float = 10
@@ -108,6 +111,10 @@ func _physics_process(delta):
 			jump_input_last_tick = 0
 			jump_last_tick = tick
 			Jumped.emit()
+			
+			if particles_jumping:
+				particles_jumping.restart()
+				particles_jumping.emitting = true
 	
 	if last_is_on_floor != is_on_floor():
 		last_is_on_floor = is_on_floor()
@@ -160,6 +167,25 @@ func _physics_process(delta):
 	# void out
 	if global_position.y < -30:
 		game_over()
+	
+	# particles
+	if particles_running:
+		var collision_radius = 0.4
+		var collision_height = 1.8
+		var collision_normal = Vector3.UP
+		if is_on_floor():
+			collision_normal = get_floor_normal()
+		if is_wall_running:
+			collision_normal = get_wall_normal()
+		
+		var pivot_pos = global_transform * (Vector3.DOWN * (collision_height/2 - collision_radius))
+		var particle_pos = pivot_pos + -get_wall_normal() * collision_radius
+		particles_running.global_position = particle_pos
+		
+		if is_on_floor() or last_is_wallrunning:
+			particles_running.amount_ratio = input.limit_length(1).length()
+		else:
+			particles_running.amount_ratio = 0
 
 func game_over():
 	get_tree().reload_current_scene()

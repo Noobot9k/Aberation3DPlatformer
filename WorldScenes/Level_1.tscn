@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bsmj74nu84w61"]
+[gd_scene load_steps=11 format=3 uid="uid://bsmj74nu84w61"]
 
 [ext_resource type="Script" path="res://Assets/LevelLogic/LevelLogic.gd" id="1_sutiq"]
 [ext_resource type="PackedScene" uid="uid://d3ssasoo22ebe" path="res://Assets/Player/Player.tscn" id="2_s6uxe"]
@@ -29,6 +29,9 @@ fog_density = 0.005
 fog_height = -30.0
 fog_height_density = 16.0
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ri8kp"]
+size = Vector3(86, 33, 86)
+
 [node name="Node3D" type="Node3D" groups=["level_handler"]]
 script = ExtResource("1_sutiq")
 completion_pickups_required = 1
@@ -45,6 +48,14 @@ environment = SubResource("Environment_k7br8")
 
 [node name="CharacterController" parent="Main" instance=ExtResource("2_s6uxe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+
+[node name="Voidout" type="Area3D" parent="Main"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12)
+collision_mask = 6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Main/Voidout"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 10.5, -1)
+shape = SubResource("BoxShape3D_ri8kp")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
@@ -338,4 +349,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47, 15, -31)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 16, -39)
 
 [node name="Pickup" parent="." instance=ExtResource("6_pj6i5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 19, -39)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 19, -37)

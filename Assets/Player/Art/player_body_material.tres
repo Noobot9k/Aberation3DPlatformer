@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://bogsubaknqe44"]
+
+[ext_resource type="Texture2D" uid="uid://ban106w8fo2j1" path="res://Assets/Player/Art/Player_Body_Albedo.png" id="1_2uqn1"]
+[ext_resource type="Texture2D" uid="uid://b6xostbfmih60" path="res://Assets/Player/Art/Player_Body_Normal.png" id="2_btdwu"]
+
+[resource]
+specular_mode = 1
+albedo_texture = ExtResource("1_2uqn1")
+normal_enabled = true
+normal_scale = 0.5
+normal_texture = ExtResource("2_btdwu")
+rim_enabled = true
+rim = 0.03

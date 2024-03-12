@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://88m8n7uj25w0"]
+
+[ext_resource type="Texture2D" uid="uid://bgqvdtm1th045" path="res://Assets/Player/Art/ProceduralTextures/Player_Hair_albedo.png" id="1_3opsl"]
+[ext_resource type="Texture2D" uid="uid://bed1cjqgx31tu" path="res://Assets/Player/Art/ProceduralTextures/Player_Hair_normal.png" id="2_4hc83"]
+
+[resource]
+transparency = 4
+depth_draw_mode = 1
+specular_mode = 1
+albedo_texture = ExtResource("1_3opsl")
+normal_enabled = true
+normal_scale = 0.5
+normal_texture = ExtResource("2_4hc83")
+rim_enabled = true
+rim = 0.05

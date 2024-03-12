@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=3 uid="uid://diymjvcu0dgmx"]
+
+[ext_resource type="PackedScene" uid="uid://coogkvecbtogb" path="res://Assets/Player/Art/PlayerCharacter.glb" id="1_woa5j"]
+[ext_resource type="Material" uid="uid://c741cnhlptmja" path="res://Assets/Player/Art/Player_Skin_Material.tres" id="2_ofltr"]
+[ext_resource type="Material" uid="uid://dj7wpchlhuv8s" path="res://Assets/Player/Art/ProceduralTextures/Player_Hair.tres" id="3_dju8e"]
+[ext_resource type="Material" uid="uid://88m8n7uj25w0" path="res://Assets/Player/Art/ProceduralTextures/Player_Hair_Fade.tres" id="4_vxdh5"]
+[ext_resource type="Material" uid="uid://bogsubaknqe44" path="res://Assets/Player/Art/player_body_material.tres" id="5_esih1"]
+
+[node name="PlayerCharacter" instance=ExtResource("1_woa5j")]
+transform = Transform3D(-0.5, 0, -4.37114e-08, 0, 0.5, 0, 4.37114e-08, 0, -0.5, 0, 0, 0)
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/1/rotation = Quaternion(0.707107, -1.99496e-07, -1.99496e-07, 0.707107)
+bones/2/rotation = Quaternion(0.685241, 3.05401e-08, -3.55324e-07, 0.728317)
+bones/2/scale = Vector3(1, 1, 1)
+bones/3/rotation = Quaternion(0.0609724, -1.15265e-10, -3.09611e-08, 0.998139)
+bones/4/rotation = Quaternion(-0.645134, -2.73252e-07, 5.3834e-07, 0.76407)
+bones/5/rotation = Quaternion(-0.707107, 3.09087e-08, 3.68083e-07, 0.707107)
+bones/6/rotation = Quaternion(-1.35525e-20, 1.42109e-14, -2.84217e-14, 1)
+bones/7/rotation = Quaternion(-2.5325e-07, 9.00897e-08, -0.777134, 0.629335)
+bones/8/rotation = Quaternion(-0.0629581, -0.0264611, 0.105554, 0.992066)
+bones/8/scale = Vector3(1, 1, 1)
+bones/9/rotation = Quaternion(0.128563, 0.0536255, 0.00186729, 0.990249)
+bones/9/scale = Vector3(1, 1, 1)
+bones/17/rotation = Quaternion(1.17316e-07, 2.1e-07, 0.777134, 0.629335)
+bones/18/rotation = Quaternion(-0.0629581, 0.0264611, -0.105554, 0.992066)
+bones/18/scale = Vector3(1, 1, 1)
+bones/19/rotation = Quaternion(0.128563, -0.0536255, -0.00186729, 0.990249)
+bones/19/scale = Vector3(1, 1, 1)
+bones/20/rotation = Quaternion(0.685241, 3.77829e-07, -2.85759e-08, 0.728317)
+bones/20/scale = Vector3(1, 1, 1)
+bones/21/rotation = Quaternion(0.0609724, -1.15266e-10, 2.71868e-08, 0.998139)
+bones/22/rotation = Quaternion(-0.645134, 2.73252e-07, -5.3834e-07, 0.76407)
+
+[node name="Head_2" parent="Armature/Skeleton3D" index="0"]
+transform = Transform3D(1, 5.04596e-13, 8.52651e-13, -5.04596e-13, 1, 2.16893e-13, -8.52651e-13, 5.21666e-14, 1, -7.90913e-13, 0, -1.86278e-09)
+
+[node name="Head_2" parent="Armature/Skeleton3D/Head_2" index="0"]
+material_override = ExtResource("2_ofltr")
+
+[node name="Hair_Fade" parent="Armature/Skeleton3D" index="1"]
+transform = Transform3D(1, 5.04596e-13, 8.52651e-13, -5.04596e-13, 1, 2.16893e-13, -8.52651e-13, 5.21666e-14, 1, -7.90913e-13, 0, -1.86278e-09)
+
+[node name="Hair_Fade" parent="Armature/Skeleton3D/Hair_Fade" index="0"]
+material_override = ExtResource("4_vxdh5")
+
+[node name="Hair_Fade_Bangs" parent="Armature/Skeleton3D" index="2"]
+transform = Transform3D(1, 5.04596e-13, 8.52651e-13, -5.04596e-13, 1, 2.16893e-13, -8.52651e-13, 5.21666e-14, 1, -7.90913e-13, 0, -1.86278e-09)
+
+[node name="Hair_Fade_Bangs" parent="Armature/Skeleton3D/Hair_Fade_Bangs" index="0"]
+material_override = ExtResource("4_vxdh5")
+
+[node name="Hair_Solid" parent="Armature/Skeleton3D" index="3"]
+transform = Transform3D(1, 5.04596e-13, 8.52651e-13, -5.04596e-13, 1, 2.16893e-13, -8.52651e-13, 5.21666e-14, 1, -7.90913e-13, 0, -1.86278e-09)
+
+[node name="Hair_Solid" parent="Armature/Skeleton3D/Hair_Solid" index="0"]
+material_override = ExtResource("3_dju8e")
+
+[node name="Hair_Solid_Tie" parent="Armature/Skeleton3D" index="4"]
+transform = Transform3D(1, 5.04596e-13, 8.52651e-13, -5.04596e-13, 1, 2.16893e-13, -8.52651e-13, 5.21666e-14, 1, -7.90913e-13, 0, -1.86278e-09)
+
+[node name="Hair_Solid_Tie" parent="Armature/Skeleton3D/Hair_Solid_Tie" index="0"]
+material_override = ExtResource("3_dju8e")
+
+[node name="Body_output" parent="Armature/Skeleton3D" index="5"]
+material_override = ExtResource("5_esih1")
