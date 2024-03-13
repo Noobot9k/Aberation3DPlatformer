@@ -6,64 +6,61 @@
 [ext_resource type="Material" uid="uid://88m8n7uj25w0" path="res://Assets/Player/Art/ProceduralTextures/Player_Hair_Fade.tres" id="4_vxdh5"]
 [ext_resource type="Material" uid="uid://bogsubaknqe44" path="res://Assets/Player/Art/player_body_material.tres" id="5_esih1"]
 
-[node name="PlayerCharacter" instance=ExtResource("1_woa5j")]
+[node name="PlayerCharacter2" instance=ExtResource("1_woa5j")]
 transform = Transform3D(-0.5, 0, -4.37114e-08, 0, 0.5, 0, 4.37114e-08, 0, -0.5, 0, 0, 0)
 
 [node name="Skeleton3D" parent="Armature" index="0"]
-bones/1/rotation = Quaternion(0.707107, -1.99496e-07, -1.99496e-07, 0.707107)
-bones/2/rotation = Quaternion(0.685241, 3.05401e-08, -3.55324e-07, 0.728317)
+bones/1/rotation = Quaternion(0.707107, -4.52377e-07, -4.52377e-07, 0.707107)
+bones/2/rotation = Quaternion(0.685241, 2.89677e-07, -5.98972e-07, 0.728317)
 bones/2/scale = Vector3(1, 1, 1)
-bones/3/rotation = Quaternion(0.0609724, -1.15265e-10, -3.09611e-08, 0.998139)
+bones/3/rotation = Quaternion(0.0609724, -2.33544e-10, -3.28979e-08, 0.998139)
 bones/4/rotation = Quaternion(-0.645134, -2.73252e-07, 5.3834e-07, 0.76407)
-bones/5/rotation = Quaternion(-0.707107, 3.09087e-08, 3.68083e-07, 0.707107)
-bones/6/rotation = Quaternion(-1.35525e-20, 1.42109e-14, -2.84217e-14, 1)
-bones/7/rotation = Quaternion(-2.25937e-07, 1.10284e-07, -0.830618, 0.556843)
+bones/5/rotation = Quaternion(-0.707107, 2.8379e-07, 6.20965e-07, 0.707107)
+bones/7/rotation = Quaternion(-2.25936e-07, 1.10284e-07, -0.830618, 0.556843)
 bones/7/scale = Vector3(1, 1, 1)
 bones/8/rotation = Quaternion(-0.0799237, -0.0447008, -0.191686, 0.977175)
 bones/8/scale = Vector3(1, 1, 1)
 bones/9/rotation = Quaternion(0.13281, 0.144638, 0.00358828, 0.980525)
-bones/17/rotation = Quaternion(1.70133e-07, 1.5524e-07, 0.830618, 0.556843)
+bones/12/rotation = Quaternion(3.72537e-09, 2.38419e-07, -8.88141e-16, 1)
+bones/17/rotation = Quaternion(1.70133e-07, 1.55239e-07, 0.830618, 0.556843)
 bones/17/scale = Vector3(1, 1, 1)
 bones/18/rotation = Quaternion(-0.0799237, 0.0447008, 0.191686, 0.977175)
 bones/18/scale = Vector3(1, 1, 1)
 bones/19/rotation = Quaternion(0.13281, -0.144638, -0.00358828, 0.980525)
-bones/20/rotation = Quaternion(0.685241, 3.77829e-07, -2.85759e-08, 0.728317)
+bones/20/rotation = Quaternion(0.685241, 6.36965e-07, -2.72224e-07, 0.728317)
 bones/20/scale = Vector3(1, 1, 1)
-bones/21/rotation = Quaternion(0.0609724, -1.15266e-10, 2.71868e-08, 0.998139)
+bones/21/rotation = Quaternion(0.0609724, -2.33509e-10, 2.525e-08, 0.998139)
 bones/22/rotation = Quaternion(-0.645134, 2.73252e-07, -5.3834e-07, 0.76407)
 
 [node name="Head_2" parent="Armature/Skeleton3D" index="0"]
-transform = Transform3D(1, -5.81202e-14, -1.13687e-13, 5.812e-14, 1, 2.70379e-13, 1.13687e-13, -1.31839e-15, 1, 1.02781e-13, -4.76837e-07, 2.79398e-08)
+transform = Transform3D(1, -1.11808e-19, 5.68434e-14, -1.78696e-19, 1, -7.45013e-09, -5.68434e-14, 7.45074e-09, 1, -1.56319e-14, -2.38419e-07, -7.45058e-09)
 
 [node name="Head_2" parent="Armature/Skeleton3D/Head_2" index="0"]
 material_override = ExtResource("2_ofltr")
 
 [node name="Hair_Fade" parent="Armature/Skeleton3D" index="1"]
-transform = Transform3D(1, -5.81202e-14, -1.13687e-13, 5.812e-14, 1, 2.70379e-13, 1.13687e-13, -1.31839e-15, 1, 1.02781e-13, -4.76837e-07, 2.79398e-08)
+transform = Transform3D(1, -1.11808e-19, 5.68434e-14, -1.78696e-19, 1, -7.45013e-09, -5.68434e-14, 7.45074e-09, 1, -1.56319e-14, -2.38419e-07, -7.45058e-09)
 
 [node name="Hair_Fade" parent="Armature/Skeleton3D/Hair_Fade" index="0"]
 material_override = ExtResource("4_vxdh5")
 
 [node name="Hair_Fade_Bangs" parent="Armature/Skeleton3D" index="2"]
-transform = Transform3D(1, -5.81202e-14, -1.13687e-13, 5.812e-14, 1, 2.70379e-13, 1.13687e-13, -1.31839e-15, 1, 1.02781e-13, -4.76837e-07, 2.79398e-08)
+transform = Transform3D(1, -1.11808e-19, 5.68434e-14, -1.78696e-19, 1, -7.45013e-09, -5.68434e-14, 7.45074e-09, 1, -1.56319e-14, -2.38419e-07, -7.45058e-09)
 
 [node name="Hair_Fade_Bangs" parent="Armature/Skeleton3D/Hair_Fade_Bangs" index="0"]
 material_override = ExtResource("4_vxdh5")
 
 [node name="Hair_Solid" parent="Armature/Skeleton3D" index="3"]
-transform = Transform3D(1, -5.81202e-14, -1.13687e-13, 5.812e-14, 1, 2.70379e-13, 1.13687e-13, -1.31839e-15, 1, 1.02781e-13, -4.76837e-07, 2.79398e-08)
+transform = Transform3D(1, -1.11808e-19, 5.68434e-14, -1.78696e-19, 1, -7.45013e-09, -5.68434e-14, 7.45074e-09, 1, -1.56319e-14, -2.38419e-07, -7.45058e-09)
 
 [node name="Hair_Solid" parent="Armature/Skeleton3D/Hair_Solid" index="0"]
 material_override = ExtResource("3_dju8e")
 
 [node name="Hair_Solid_Tie" parent="Armature/Skeleton3D" index="4"]
-transform = Transform3D(1, -5.81202e-14, -1.13687e-13, 5.812e-14, 1, 2.70379e-13, 1.13687e-13, -1.31839e-15, 1, 1.02781e-13, -4.76837e-07, 2.79398e-08)
+transform = Transform3D(1, -1.11808e-19, 5.68434e-14, -1.78696e-19, 1, -7.45013e-09, -5.68434e-14, 7.45074e-09, 1, -1.56319e-14, -2.38419e-07, -7.45058e-09)
 
 [node name="Hair_Solid_Tie" parent="Armature/Skeleton3D/Hair_Solid_Tie" index="0"]
 material_override = ExtResource("3_dju8e")
 
 [node name="Body_output" parent="Armature/Skeleton3D" index="5"]
 material_override = ExtResource("5_esih1")
-
-[node name="AnimationPlayer" parent="." index="1"]
-autoplay = "Idle"

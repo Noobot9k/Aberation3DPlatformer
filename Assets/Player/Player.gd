@@ -45,6 +45,7 @@ var is_wall_running : bool = false
 @onready var model : Node3D = get_node("Visual")
 @onready var camera : Camera3D = get_viewport().get_camera_3d()
 @onready var anim_player : AnimationPlayer = find_child("AnimationPlayer", true)
+@onready var anim_tree : AnimationTree = find_child("AnimationTree", true)
 
 signal Jumped
 signal Landed
@@ -117,6 +118,12 @@ func _physics_process(delta):
 			if particles_jumping:
 				particles_jumping.restart()
 				particles_jumping.emitting = true
+			
+			if anim_player:
+				anim_player.play("Jump")
+			#if anim_tree:
+				#var state_machine = anim_tree.get("parameters/playback")
+				#state_machine.travel("Jump")
 	
 	if last_is_on_floor != is_on_floor():
 		last_is_on_floor = is_on_floor()
@@ -152,6 +159,12 @@ func _physics_process(delta):
 	if is_wall_running and tick - jump_last_tick > jump_cooldownMS/1000:
 		velocity = project_on_plane(velocity, get_wall_normal()) + -get_wall_normal() * wall_run_magnet_force
 	
+	if is_wall_running:
+		var wall_dot : float = (global_basis * Vector3.RIGHT).normalized().dot(get_wall_normal())
+		model.basis = Basis.from_euler( Vector3(0,0,deg_to_rad(-20) * wall_dot) )
+	else:
+		model.basis = Basis()
+	
 	if last_is_wallrunning != is_wall_running:
 		last_is_wallrunning = is_wall_running
 	
@@ -174,14 +187,14 @@ func _physics_process(delta):
 	if particles_running:
 		var collision_radius = 0.4
 		var collision_height = 1.8
-		var collision_normal = Vector3.UP
+		var collision_normal = up_direction
 		if is_on_floor():
 			collision_normal = get_floor_normal()
 		if is_wall_running:
 			collision_normal = get_wall_normal()
 		
 		var pivot_pos = global_transform * (Vector3.DOWN * (collision_height/2 - collision_radius))
-		var particle_pos = pivot_pos + -get_wall_normal() * collision_radius
+		var particle_pos = pivot_pos + -collision_normal * collision_radius
 		particles_running.global_position = particle_pos
 		
 		if is_on_floor() or last_is_wallrunning:
@@ -191,10 +204,21 @@ func _physics_process(delta):
 	
 	# animation
 	if anim_player:
-		if move_vector.length() > 0.1 and is_on_floor():
-			anim_player.play("Running", -1, input.limit_length(1).length() * 2)
+		if (is_on_floor() and velocity.length() > 0) or is_wall_running: #if move_vector.length() > 0.1 and is_on_floor():
+			#anim_player.play("Running", -1, input.limit_length(1).length() * 1.666)
+			anim_player.play("Running", .333, (velocity.length() / move_speed) * 1.666)
+		elif not is_on_floor() and not is_wall_running:
+			if anim_player.current_animation == "Jump":
+				anim_player.queue("Falling")
+			else:
+				anim_player.play("Falling", .1);
 		else:
-			anim_player.play("Idle", -1, .5)
-
+			anim_player.play("Idle", .333, .5)
+	
+	#if anim_tree:
+		#anim_tree.set("parameters/conditions/is_airborne", not (is_on_floor() or is_wall_running))
+		#anim_tree.set("parameters/BlendTree/move_alpha_also/blend_amount", velocity.length() / move_speed)
+		#anim_tree.set("parameters/BlendTree/move_alpha/scale", velocity.length() / move_speed)
+	
 func game_over():
 	get_tree().reload_current_scene()

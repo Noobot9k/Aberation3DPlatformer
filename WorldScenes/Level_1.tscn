@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://bsmj74nu84w61"]
+[gd_scene load_steps=14 format=3 uid="uid://bsmj74nu84w61"]
 
 [ext_resource type="Script" path="res://Assets/LevelLogic/LevelLogic.gd" id="1_sutiq"]
 [ext_resource type="PackedScene" uid="uid://d3ssasoo22ebe" path="res://Assets/Player/Player.tscn" id="2_s6uxe"]
+[ext_resource type="Shader" path="res://Assets/Player/digital_world.gdshader" id="3_x04f4"]
 [ext_resource type="Material" uid="uid://c18ot2umc6bkq" path="res://Assets/GenericMaterials/ProceduralTextures/Grass3D.tres" id="3_yuvmt"]
 [ext_resource type="Material" uid="uid://ckfi4pb7d3ipl" path="res://Assets/GenericMaterials/ProceduralTextures/Concrete.tres" id="4_nf455"]
 [ext_resource type="PackedScene" uid="uid://f0phmcgnibdw" path="res://Assets/GenericProps/Cone.tscn" id="5_5wag4"]
@@ -32,6 +33,14 @@ fog_height_density = 16.0
 [sub_resource type="BoxShape3D" id="BoxShape3D_ri8kp"]
 size = Vector3(86, 33, 86)
 
+[sub_resource type="QuadMesh" id="QuadMesh_3lcpm"]
+flip_faces = true
+size = Vector2(2, 2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l8hgj"]
+render_priority = 0
+shader = ExtResource("3_x04f4")
+
 [node name="Node3D" type="Node3D" groups=["level_handler"]]
 script = ExtResource("1_sutiq")
 completion_pickups_required = 1
@@ -56,6 +65,12 @@ collision_mask = 6
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Main/Voidout"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 10.5, -1)
 shape = SubResource("BoxShape3D_ri8kp")
+
+[node name="PP" type="MeshInstance3D" parent="Main"]
+visible = false
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_3lcpm")
+surface_material_override/0 = SubResource("ShaderMaterial_l8hgj")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
