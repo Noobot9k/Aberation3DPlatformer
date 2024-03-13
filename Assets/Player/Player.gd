@@ -44,6 +44,7 @@ var is_wall_running : bool = false
 
 @onready var model : Node3D = get_node("Visual")
 @onready var camera : Camera3D = get_viewport().get_camera_3d()
+@onready var anim_player : AnimationPlayer = find_child("AnimationPlayer", true)
 
 signal Jumped
 signal Landed
@@ -52,6 +53,7 @@ func project_on_plane(point : Vector3, plane : Vector3):
 	return point - point.project(plane)
 
 func _physics_process(delta):
+	
 	var tick : float = ScaledTime.CurrentTime # Time.get_unix_time_from_system()
 	
 	#var gravity_scale = PhysicsServer3D.body_get_param(self, PhysicsServer3D.BODY_PARAM_GRAVITY_SCALE)
@@ -186,6 +188,13 @@ func _physics_process(delta):
 			particles_running.amount_ratio = input.limit_length(1).length()
 		else:
 			particles_running.amount_ratio = 0
+	
+	# animation
+	if anim_player:
+		if move_vector.length() > 0.1 and is_on_floor():
+			anim_player.play("Running", -1, input.limit_length(1).length() * 2)
+		else:
+			anim_player.play("Idle", -1, .5)
 
 func game_over():
 	get_tree().reload_current_scene()
