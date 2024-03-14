@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://m4psvngylkj8"]
+
+[ext_resource type="PackedScene" uid="uid://bap1wh1ykqsec" path="res://Assets/GenericProps/VendingMachine/VendingMachine.glb" id="1_oj466"]
+[ext_resource type="Material" uid="uid://bty4uopisdp82" path="res://Assets/GenericProps/VendingMachine/VendingMachine.tres" id="2_mdoad"]
+
+[node name="VendingMachine" instance=ExtResource("1_oj466")]
+
+[node name="VendingMachine" parent="." index="0"]
+material_override = ExtResource("2_mdoad")

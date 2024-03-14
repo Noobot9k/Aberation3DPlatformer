@@ -1,0 +1,264 @@
+{
+	"connections": [
+		{
+			"from": "image_3",
+			"from_port": 0,
+			"to": "normal_map_convert_2",
+			"to_port": 0
+		},
+		{
+			"from": "normal_map2_2",
+			"from_port": 0,
+			"to": "blend2_4",
+			"to_port": 1
+		},
+		{
+			"from": "normal_map_convert_2",
+			"from_port": 0,
+			"to": "blend2_4",
+			"to_port": 0
+		},
+		{
+			"from": "bricks",
+			"from_port": 0,
+			"to": "gaussian_blur",
+			"to_port": 0
+		},
+		{
+			"from": "gaussian_blur",
+			"from_port": 0,
+			"to": "normal_map2_2",
+			"to_port": 0
+		},
+		{
+			"from": "uniform_4",
+			"from_port": 0,
+			"to": "blend2_5",
+			"to_port": 0
+		},
+		{
+			"from": "image_2",
+			"from_port": 0,
+			"to": "blend2_5",
+			"to_port": 1
+		},
+		{
+			"from": "bricks",
+			"from_port": 0,
+			"to": "tones_step",
+			"to_port": 0
+		},
+		{
+			"from": "tones_step",
+			"from_port": 0,
+			"to": "blend2_5",
+			"to_port": 2
+		},
+		{
+			"from": "blend2_5",
+			"from_port": 0,
+			"to": "Material",
+			"to_port": 0
+		},
+		{
+			"from": "blend2_4",
+			"from_port": 0,
+			"to": "Material",
+			"to_port": 4
+		}
+	],
+	"label": "Graph",
+	"longdesc": "",
+	"name": "@@6594",
+	"node_position": {
+		"x": 0,
+		"y": 0
+	},
+	"nodes": [
+		{
+			"export_paths": {
+
+			},
+			"name": "Material",
+			"node_position": {
+				"x": 0,
+				"y": 0
+			},
+			"parameters": {
+				"albedo_color": {
+					"a": 1,
+					"b": 1,
+					"g": 1,
+					"r": 1,
+					"type": "Color"
+				},
+				"ao": 1,
+				"depth_scale": 0.5,
+				"emission_energy": 1,
+				"flags_transparent": true,
+				"metallic": 0,
+				"normal": 1,
+				"roughness": 1,
+				"size": 11,
+				"sss": 1
+			},
+			"seed_int": 0,
+			"type": "material"
+		},
+		{
+			"name": "tones_step",
+			"node_position": {
+				"x": -792.818481,
+				"y": 24.290312
+			},
+			"parameters": {
+				"invert": false,
+				"value": 0.14,
+				"width": 0.1
+			},
+			"seed_int": 0,
+			"type": "tones_step"
+		},
+		{
+			"name": "uniform_4",
+			"node_position": {
+				"x": -669.318481,
+				"y": -57.709644
+			},
+			"parameters": {
+				"color": {
+					"a": 1,
+					"b": 0.701961,
+					"g": 0.494118,
+					"r": 0.47451,
+					"type": "Color"
+				}
+			},
+			"seed_int": 0,
+			"type": "uniform"
+		},
+		{
+			"name": "image_2",
+			"node_position": {
+				"x": -669.05304,
+				"y": -214.090714
+			},
+			"parameters": {
+				"clamp": false,
+				"fix_ar": false,
+				"image": "%PROJECT_PATH%/Concrete_Crackless_albedo.png"
+			},
+			"seed_int": 0,
+			"type": "image"
+		},
+		{
+			"generic_size": 1,
+			"name": "blend2_5",
+			"node_position": {
+				"x": -342.818481,
+				"y": -32.709682
+			},
+			"parameters": {
+				"amount1": 1,
+				"blend_type1": 0
+			},
+			"seed_int": 0,
+			"type": "blend2"
+		},
+		{
+			"name": "bricks",
+			"node_position": {
+				"x": -1072.738525,
+				"y": 167.130325
+			},
+			"parameters": {
+				"bevel": 0.1,
+				"columns": 3,
+				"corner": 0.3,
+				"mortar": 0.03,
+				"pattern": 0,
+				"repeat": 1,
+				"round": 0,
+				"row_offset": 0.5,
+				"rows": 8
+			},
+			"seed_int": 0,
+			"type": "bricks3"
+		},
+		{
+			"name": "gaussian_blur",
+			"node_position": {
+				"x": -773.618591,
+				"y": 313.810303
+			},
+			"parameters": {
+				"param0": 9,
+				"param1": 2.1,
+				"param2": 0
+			},
+			"seed_int": 0,
+			"type": "gaussian_blur"
+		},
+		{
+			"name": "normal_map2_2",
+			"node_position": {
+				"x": -516.618591,
+				"y": 270.810303
+			},
+			"parameters": {
+				"buffer": 1,
+				"param2": 0,
+				"size": 10,
+				"strength": 1
+			},
+			"seed_int": 0,
+			"type": "normal_map2"
+		},
+		{
+			"generic_size": 1,
+			"name": "blend2_4",
+			"node_position": {
+				"x": -316.618561,
+				"y": 184.810287
+			},
+			"parameters": {
+				"amount1": 0.5,
+				"blend_type1": 0
+			},
+			"seed_int": 0,
+			"type": "blend2"
+		},
+		{
+			"name": "normal_map_convert_2",
+			"node_position": {
+				"x": -570.333069,
+				"y": 171.389313
+			},
+			"parameters": {
+				"op": 0
+			},
+			"seed_int": 0,
+			"type": "normal_map_convert"
+		},
+		{
+			"name": "image_3",
+			"node_position": {
+				"x": -802.053162,
+				"y": 150.229294
+			},
+			"parameters": {
+				"clamp": false,
+				"fix_ar": false,
+				"image": "%PROJECT_PATH%/Concrete_Crackless_normal.png"
+			},
+			"seed_int": 0,
+			"type": "image"
+		}
+	],
+	"parameters": {
+
+	},
+	"seed_int": 0,
+	"shortdesc": "",
+	"type": "graph"
+}

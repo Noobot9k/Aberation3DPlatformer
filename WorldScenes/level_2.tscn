@@ -1,34 +1,17 @@
-[gd_scene load_steps=12 format=3 uid="uid://bs0t3lyuvmyif"]
+[gd_scene load_steps=14 format=3 uid="uid://bs0t3lyuvmyif"]
 
 [ext_resource type="PackedScene" uid="uid://d3ssasoo22ebe" path="res://Assets/Player/Player.tscn" id="1_5jhlf"]
 [ext_resource type="Script" path="res://Assets/LevelLogic/LevelLogic_GravitySwitch.gd" id="1_ksbka"]
+[ext_resource type="Environment" uid="uid://t52k88e33d7b" path="res://Environment/WorldEnvironment.tres" id="2_bjyti"]
 [ext_resource type="PackedScene" uid="uid://4nqmmlqc6ndo" path="res://Assets/Structures/bridge_section.tscn" id="2_mk1ox"]
 [ext_resource type="PackedScene" uid="uid://c5ao2n6h5h3j7" path="res://Assets/Structures/bridge_section_crossbeams.tscn" id="3_0vd0e"]
 [ext_resource type="Material" uid="uid://ckfi4pb7d3ipl" path="res://Assets/GenericMaterials/ProceduralTextures/Concrete.tres" id="3_i53k0"]
+[ext_resource type="Material" uid="uid://exlshjnd1tx2" path="res://Assets/GenericMaterials/ProceduralTextures/BuildingWindows.tres" id="4_3s1rw"]
+[ext_resource type="Material" uid="uid://cd52t0gb1n8cy" path="res://Assets/GenericMaterials/ProceduralTextures/Concrete_Cinderblocks.tres" id="5_kfr63"]
 [ext_resource type="PackedScene" uid="uid://deihe84wxx3g3" path="res://Assets/Objects/Pickups/LevelCompletionPiece.tscn" id="5_tk2ds"]
+[ext_resource type="Material" uid="uid://cax3sxuevwsqr" path="res://Assets/GenericMaterials/ProceduralTextures/metal_worn.tres" id="6_mkko3"]
 [ext_resource type="PackedScene" uid="uid://f0phmcgnibdw" path="res://Assets/GenericProps/Cone.tscn" id="6_py83f"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rdbpo"]
-sky_top_color = Color(0, 0.227451, 0.54902, 1)
-sky_horizon_color = Color(0.490196, 0.686275, 1, 1)
-ground_horizon_color = Color(0.490196, 0.686275, 1, 1)
-sun_angle_max = 51.45
-
-[sub_resource type="Sky" id="Sky_1ab73"]
-sky_material = SubResource("ProceduralSkyMaterial_rdbpo")
-
-[sub_resource type="Environment" id="Environment_tf1p4"]
-background_mode = 2
-sky = SubResource("Sky_1ab73")
-ambient_light_source = 2
-ambient_light_color = Color(1, 1, 1, 1)
-ambient_light_sky_contribution = 0.8
-ambient_light_energy = 0.24
-fog_enabled = true
-fog_light_color = Color(0.4, 0.545098, 0.94902, 1)
-fog_density = 0.005
-fog_height = -30.0
-fog_height_density = 16.0
+[ext_resource type="PackedScene" uid="uid://8qkhgc7dima" path="res://Assets/GenericProps/metal_pipe.tscn" id="11_kh07p"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vfypt"]
 size = Vector3(94, 42, 112)
@@ -46,7 +29,7 @@ light_energy = 0.24
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Main"]
-environment = SubResource("Environment_tf1p4")
+environment = ExtResource("2_bjyti")
 
 [node name="CharacterController" parent="Main" instance=ExtResource("1_5jhlf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
@@ -123,14 +106,16 @@ use_collision = true
 size = Vector3(12, 4, 17)
 
 [node name="CSGBox3D18" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 16.5, -64)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 12, -64)
+material_override = ExtResource("4_3s1rw")
 use_collision = true
-size = Vector3(9, 11, 12)
+size = Vector3(9, 8, 12)
 
 [node name="CSGBox3D19" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 19, -56.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 19, -62.5)
+material_override = ExtResource("5_kfr63")
 use_collision = true
-size = Vector3(9, 6, 3)
+size = Vector3(9, 6, 15)
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, -7)
@@ -194,9 +179,10 @@ use_collision = true
 size = Vector3(5, 4, 2)
 
 [node name="CSGBox3D14" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 15.5, -16.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 15.5, -17)
+material_override = ExtResource("5_kfr63")
 use_collision = true
-size = Vector3(18, 17, 51)
+size = Vector3(18, 17, 50)
 
 [node name="CSGBox3D11" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 8, -15)
@@ -205,6 +191,7 @@ size = Vector3(3, 2, 3)
 
 [node name="CSGBox3D9" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 11.5, -41.5)
+material_override = ExtResource("6_mkko3")
 use_collision = true
 size = Vector3(7, 1, 1)
 
@@ -235,18 +222,6 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -26, 9
 [node name="bridge_section3" parent="." instance=ExtResource("2_mk1ox")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 30, 9, -50)
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -21, 10, -38)
-use_collision = true
-radius = 3.0
-height = 4.0
-
-[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="."]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -21, 10, -29)
-use_collision = true
-radius = 3.0
-height = 4.0
-
 [node name="CSGCylinder3D4" type="CSGCylinder3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 15, -33.5)
 material_override = ExtResource("3_i53k0")
@@ -266,24 +241,6 @@ transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 
 material_override = ExtResource("3_i53k0")
 use_collision = true
 radius = 4.0
-height = 4.0
-
-[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="."]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -21, 10, -20)
-use_collision = true
-radius = 3.0
-height = 4.0
-
-[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="."]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -21, 10, -11)
-use_collision = true
-radius = 3.0
-height = 4.0
-
-[node name="CSGCylinder3D7" type="CSGCylinder3D" parent="."]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -21, 10, -3)
-use_collision = true
-radius = 3.0
 height = 4.0
 
 [node name="bridge_section_crossbeams" parent="." instance=ExtResource("3_0vd0e")]
@@ -318,11 +275,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 23, -48.4)
 
 [node name="CSGBox3D16" type="CSGBox3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 2.9)
+material_override = ExtResource("6_mkko3")
 use_collision = true
 size = Vector3(1, 3, 5)
 
 [node name="CSGBox3D17" type="CSGBox3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, -3.1)
+material_override = ExtResource("6_mkko3")
 use_collision = true
 size = Vector3(1, 3, 5)
 
@@ -352,10 +311,12 @@ use_collision = true
 
 [node name="CSGCylinder3D14" type="CSGCylinder3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.5, -0.0999985)
+material_override = ExtResource("6_mkko3")
 use_collision = true
 
 [node name="CSGCylinder3D15" type="CSGCylinder3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -2.5, -0.0999985)
+material_override = ExtResource("6_mkko3")
 use_collision = true
 
 [node name="Pickup2" parent="." instance=ExtResource("5_tk2ds")]
@@ -363,5 +324,19 @@ transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 11, 21
 
 [node name="Cone3" parent="." instance=ExtResource("6_py83f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 8, -23)
+
+[node name="metal_pipe" parent="." instance=ExtResource("11_kh07p")]
+
+[node name="metal_pipe2" parent="." instance=ExtResource("11_kh07p")]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -21, 10, -11)
+
+[node name="metal_pipe3" parent="." instance=ExtResource("11_kh07p")]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -21, 10, -20)
+
+[node name="metal_pipe4" parent="." instance=ExtResource("11_kh07p")]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -21, 10, -29)
+
+[node name="metal_pipe5" parent="." instance=ExtResource("11_kh07p")]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -21, 10, -38)
 
 [connection signal="body_exited" from="Main/Voidout" to="." method="body_voidout"]

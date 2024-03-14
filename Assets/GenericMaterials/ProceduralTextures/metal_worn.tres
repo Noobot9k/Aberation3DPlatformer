@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cax3sxuevwsqr"]
+
+[ext_resource type="Texture2D" uid="uid://dov6ebnulccv0" path="res://Assets/GenericProps/Handrails/ProceduralMaterials/Handrail_albedo.png" id="1_eoivw"]
+
+[resource]
+albedo_texture = ExtResource("1_eoivw")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_world_triplanar = true

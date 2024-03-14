@@ -1,0 +1,135 @@
+[gd_scene load_steps=9 format=3 uid="uid://lp5s2n6vr7w5"]
+
+[ext_resource type="Environment" uid="uid://t52k88e33d7b" path="res://Environment/WorldEnvironment.tres" id="1_6i1do"]
+[ext_resource type="Material" uid="uid://ckfi4pb7d3ipl" path="res://Assets/GenericMaterials/ProceduralTextures/Concrete.tres" id="2_60u0h"]
+[ext_resource type="Material" uid="uid://c18ot2umc6bkq" path="res://Assets/GenericMaterials/ProceduralTextures/Grass3D.tres" id="3_3flqi"]
+[ext_resource type="Material" uid="uid://exlshjnd1tx2" path="res://Assets/GenericMaterials/ProceduralTextures/BuildingWindows.tres" id="3_eoq1v"]
+[ext_resource type="PackedScene" uid="uid://f0phmcgnibdw" path="res://Assets/GenericProps/Cone.tscn" id="4_coc84"]
+[ext_resource type="PackedScene" uid="uid://gtvy33icw8o8" path="res://Assets/GenericProps/handrail.tscn" id="5_h471j"]
+[ext_resource type="PackedScene" uid="uid://wjamvsb3p4cp" path="res://Assets/GenericProps/tree.tscn" id="6_1rh33"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_grkyd"]
+size = Vector3(86, 33, 86)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Main" type="Node3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Main"]
+transform = Transform3D(0.500003, -0.75, 0.43301, -1.45048e-10, 0.499998, 0.866026, -0.866024, -0.433016, 0.25, 0, 0, 0)
+light_energy = 0.24
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Main"]
+environment = ExtResource("1_6i1do")
+
+[node name="Voidout" type="Area3D" parent="Main"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12)
+collision_mask = 6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Main/Voidout"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 10.5, -1)
+shape = SubResource("BoxShape3D_grkyd")
+
+[node name="Camera3D" type="Camera3D" parent="Main"]
+transform = Transform3D(1, 0, 0, 0, -2.98023e-08, 1, 0, -1, -2.98023e-08, 0, 15, 0)
+projection = 1
+size = 16.0
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+material_override = ExtResource("2_60u0h")
+use_collision = true
+size = Vector3(14, 1, 21)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(0.612372, -0.5, -0.612372, 0.353553, 0.866025, -0.353553, 0.707107, 0, 0.707107, -17.75, 5.39711, -2.5)
+material_override = ExtResource("3_eoq1v")
+use_collision = true
+size = Vector3(6, 18, 6)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, -0.5, 0)
+material_override = ExtResource("3_3flqi")
+cast_shadow = 0
+use_collision = true
+size = Vector3(13, 1, 21)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, -0.5, 0)
+material_override = ExtResource("3_3flqi")
+cast_shadow = 0
+use_collision = true
+size = Vector3(13, 1, 21)
+
+[node name="Cone" parent="." instance=ExtResource("4_coc84")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -5)
+
+[node name="Cone2" parent="." instance=ExtResource("4_coc84")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 5)
+
+[node name="Handrail" parent="." instance=ExtResource("5_h471j")]
+transform = Transform3D(0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 0, 0, 1, -6.96593, -0.258819, -9)
+
+[node name="Handrail2" parent="." instance=ExtResource("5_h471j")]
+transform = Transform3D(0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 0, 0, 1, -6.96593, -0.258819, -7)
+
+[node name="Handrail3" parent="." instance=ExtResource("5_h471j")]
+transform = Transform3D(0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 0, 0, 1, -6.96593, -0.258819, -5)
+
+[node name="Handrail4" parent="." instance=ExtResource("5_h471j")]
+transform = Transform3D(0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 0, 0, 1, -6.96593, -0.258819, -3)
+
+[node name="Handrail5" parent="." instance=ExtResource("5_h471j")]
+transform = Transform3D(0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 0, 0, 1, -6.96593, -0.258819, -1)
+
+[node name="Handrail6" parent="." instance=ExtResource("5_h471j")]
+transform = Transform3D(0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 0, 0, 1, -6.96593, -0.258819, 1)
+
+[node name="Handrail7" parent="." instance=ExtResource("5_h471j")]
+transform = Transform3D(0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 0, 0, 1, -6.96593, -0.258819, 3)
+
+[node name="Handrail8" parent="." instance=ExtResource("5_h471j")]
+transform = Transform3D(0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 0, 0, 1, -6.96593, -0.258819, 5)
+
+[node name="Handrail9" parent="." instance=ExtResource("5_h471j")]
+transform = Transform3D(0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 0, 0, 1, -6.96593, -0.258819, 7)
+
+[node name="Handrail10" parent="." instance=ExtResource("5_h471j")]
+transform = Transform3D(0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 0, 0, 1, -6.96593, -0.258819, 9)
+
+[node name="Handrail11" parent="." instance=ExtResource("5_h471j")]
+transform = Transform3D(0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0, 0, 1, 6.96593, -0.258819, 9)
+
+[node name="Handrail12" parent="." instance=ExtResource("5_h471j")]
+transform = Transform3D(0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0, 0, 1, 6.96593, -0.258819, 7)
+
+[node name="Handrail13" parent="." instance=ExtResource("5_h471j")]
+transform = Transform3D(0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0, 0, 1, 6.96593, -0.258819, 5)
+
+[node name="Handrail14" parent="." instance=ExtResource("5_h471j")]
+transform = Transform3D(0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0, 0, 1, 6.96593, -0.258819, 3)
+
+[node name="Handrail15" parent="." instance=ExtResource("5_h471j")]
+transform = Transform3D(0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0, 0, 1, 6.96593, -0.258819, 1)
+
+[node name="Handrail16" parent="." instance=ExtResource("5_h471j")]
+transform = Transform3D(0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0, 0, 1, 6.96593, -0.258819, -1)
+
+[node name="Handrail17" parent="." instance=ExtResource("5_h471j")]
+transform = Transform3D(0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0, 0, 1, 6.96593, -0.258819, -3)
+
+[node name="Handrail18" parent="." instance=ExtResource("5_h471j")]
+transform = Transform3D(0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0, 0, 1, 6.96593, -0.258819, -5)
+
+[node name="Handrail19" parent="." instance=ExtResource("5_h471j")]
+transform = Transform3D(0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0, 0, 1, 6.96593, -0.258819, -7)
+
+[node name="Handrail20" parent="." instance=ExtResource("5_h471j")]
+transform = Transform3D(0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0, 0, 1, 6.96593, -0.258819, -9)
+
+[node name="Tree" parent="." instance=ExtResource("6_1rh33")]
+transform = Transform3D(0.866025, -0.5, 0, 0.5, 0.866025, 0, 0, 0, 1, -9, 0, 3)
+
+[node name="Tree2" parent="." instance=ExtResource("6_1rh33")]
+transform = Transform3D(0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0, 1, 8, 0, -2)

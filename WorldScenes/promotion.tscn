@@ -1,0 +1,229 @@
+[gd_scene load_steps=19 format=3 uid="uid://dvj1jd4gd8wro"]
+
+[ext_resource type="Environment" uid="uid://t52k88e33d7b" path="res://Environment/WorldEnvironment.tres" id="1_igfec"]
+[ext_resource type="PackedScene" uid="uid://d3ssasoo22ebe" path="res://Assets/Player/Player.tscn" id="2_fn6fk"]
+[ext_resource type="Shader" path="res://Assets/Player/digital_world.gdshader" id="3_20gpl"]
+[ext_resource type="Material" uid="uid://ckfi4pb7d3ipl" path="res://Assets/GenericMaterials/ProceduralTextures/Concrete.tres" id="4_ih1h4"]
+[ext_resource type="Material" uid="uid://exlshjnd1tx2" path="res://Assets/GenericMaterials/ProceduralTextures/BuildingWindows.tres" id="5_4mjyt"]
+[ext_resource type="Material" uid="uid://c18ot2umc6bkq" path="res://Assets/GenericMaterials/ProceduralTextures/Grass3D.tres" id="5_8ccmm"]
+[ext_resource type="Material" uid="uid://cd52t0gb1n8cy" path="res://Assets/GenericMaterials/ProceduralTextures/Concrete_Cinderblocks.tres" id="6_p03u1"]
+[ext_resource type="PackedScene" uid="uid://cqltq2wc7peqs" path="res://Assets/GenericProps/vending_machine.tscn" id="8_o2j5u"]
+[ext_resource type="PackedScene" uid="uid://gtvy33icw8o8" path="res://Assets/GenericProps/handrail.tscn" id="9_gthc4"]
+[ext_resource type="PackedScene" uid="uid://wjamvsb3p4cp" path="res://Assets/GenericProps/tree.tscn" id="10_1k5is"]
+[ext_resource type="PackedScene" uid="uid://bhuw6ptx8h7gr" path="res://Assets/GenericProps/Bush.tscn" id="11_o45pb"]
+[ext_resource type="PackedScene" uid="uid://f0phmcgnibdw" path="res://Assets/GenericProps/Cone.tscn" id="12_jvx76"]
+[ext_resource type="PackedScene" uid="uid://cxp12vnwt4x12" path="res://Assets/GenericProps/Stairs.tscn" id="13_ecsci"]
+[ext_resource type="PackedScene" uid="uid://bvb55oy4vsoqa" path="res://Assets/GenericProps/handrail_stairs.tscn" id="14_mkx8y"]
+[ext_resource type="PackedScene" uid="uid://t483jnmq7p0l" path="res://Assets/GenericProps/Bollard.tscn" id="15_oi0g0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ora7c"]
+size = Vector3(86, 33, 86)
+
+[sub_resource type="QuadMesh" id="QuadMesh_t73w3"]
+flip_faces = true
+size = Vector2(2, 2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tu2io"]
+render_priority = 0
+shader = ExtResource("3_20gpl")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Main" type="Node3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Main"]
+transform = Transform3D(0.500003, -0.75, 0.43301, -1.45048e-10, 0.499998, 0.866026, -0.866024, -0.433016, 0.25, 0, 0, 0)
+light_energy = 0.24
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Main"]
+environment = ExtResource("1_igfec")
+
+[node name="CharacterController" parent="Main" instance=ExtResource("2_fn6fk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+
+[node name="Voidout" type="Area3D" parent="Main"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12)
+collision_mask = 6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Main/Voidout"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 10.5, -1)
+shape = SubResource("BoxShape3D_ora7c")
+
+[node name="PP" type="MeshInstance3D" parent="Main"]
+visible = false
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_t73w3")
+surface_material_override/0 = SubResource("ShaderMaterial_tu2io")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, -0.5, -41.5)
+material_override = ExtResource("4_ih1h4")
+use_collision = true
+size = Vector3(60, 1, 83)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, -0.5, 22.5)
+material_override = ExtResource("5_8ccmm")
+cast_shadow = 0
+use_collision = true
+size = Vector3(37, 1, 45)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.5, -3.5)
+material_override = ExtResource("4_ih1h4")
+use_collision = true
+size = Vector3(6, 3, 7)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 24)
+material_override = ExtResource("4_ih1h4")
+use_collision = true
+size = Vector3(8, 2, 58)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.5, 3.5, -4.5)
+material_override = ExtResource("6_p03u1")
+use_collision = true
+size = Vector3(13, 9, 13)
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.5, -2.5, 36.5)
+material_override = ExtResource("6_p03u1")
+use_collision = true
+size = Vector3(13, 19, 13)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -7.5)
+material_override = ExtResource("4_ih1h4")
+use_collision = true
+size = Vector3(11, 2, 1)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -2)
+material_override = ExtResource("4_ih1h4")
+use_collision = true
+size = Vector3(2, 2, 4)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.5, -5.5)
+material_override = ExtResource("4_ih1h4")
+use_collision = true
+size = Vector3(2, 3, 3)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 4.5, -13.5)
+material_override = ExtResource("5_4mjyt")
+use_collision = true
+size = Vector3(18, 9, 7)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 12.5, -23.5)
+material_override = ExtResource("5_4mjyt")
+use_collision = true
+size = Vector3(18, 25, 17)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 5.5, 9.5)
+material_override = ExtResource("5_4mjyt")
+use_collision = true
+size = Vector3(18, 25, 17)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, -0.5, 53.5)
+material_override = ExtResource("5_4mjyt")
+use_collision = true
+size = Vector3(18, 25, 17)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72, 9.5, 28.5)
+material_override = ExtResource("5_4mjyt")
+use_collision = true
+size = Vector3(18, 33, 17)
+
+[node name="RigidBody3D" parent="." instance=ExtResource("8_o2j5u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -6)
+
+[node name="Handrail" parent="." instance=ExtResource("9_gthc4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3, 1, -7)
+
+[node name="Handrail2" parent="." instance=ExtResource("9_gthc4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 1, -7)
+
+[node name="Handrail3" parent="." instance=ExtResource("9_gthc4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1, 1, -7)
+
+[node name="Handrail4" parent="." instance=ExtResource("9_gthc4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 1, -7)
+
+[node name="Handrail5" parent="." instance=ExtResource("9_gthc4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5, 2, -7)
+
+[node name="Handrail6" parent="." instance=ExtResource("9_gthc4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4, 2, -5)
+
+[node name="Handrail7" parent="." instance=ExtResource("9_gthc4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -6, 2, -3)
+
+[node name="Handrail8" parent="." instance=ExtResource("9_gthc4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -6, 2, -1)
+
+[node name="Tree" parent="." instance=ExtResource("10_1k5is")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 3)
+
+[node name="Bush2" parent="." instance=ExtResource("11_o45pb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 2)
+
+[node name="Tree2" parent="." instance=ExtResource("10_1k5is")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 9)
+
+[node name="Tree3" parent="." instance=ExtResource("10_1k5is")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 23)
+
+[node name="Tree5" parent="." instance=ExtResource("10_1k5is")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 15)
+
+[node name="Tree6" parent="." instance=ExtResource("10_1k5is")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 11)
+
+[node name="Tree7" parent="." instance=ExtResource("10_1k5is")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 23)
+
+[node name="Tree4" parent="." instance=ExtResource("10_1k5is")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 28)
+
+[node name="Tree8" parent="." instance=ExtResource("10_1k5is")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 35)
+
+[node name="Tree9" parent="." instance=ExtResource("10_1k5is")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 41)
+
+[node name="Tree10" parent="." instance=ExtResource("10_1k5is")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 19)
+
+[node name="Cone" parent="." instance=ExtResource("12_jvx76")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 2, -1)
+
+[node name="Cone2" parent="." instance=ExtResource("12_jvx76")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -4)
+
+[node name="Stairs" parent="." instance=ExtResource("13_ecsci")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 0, -1)
+
+[node name="Stairs2" parent="." instance=ExtResource("13_ecsci")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1, -3)
+
+[node name="Handrail_Stairs" parent="." instance=ExtResource("14_mkx8y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, -3)
+
+[node name="Handrail_Stairs2" parent="." instance=ExtResource("14_mkx8y")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 0, -2)
+
+[node name="Bollard" parent="." instance=ExtResource("15_oi0g0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -1)
+
+[node name="Bollard2" parent="." instance=ExtResource("15_oi0g0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -3)
+
+[node name="Bollard3" parent="." instance=ExtResource("15_oi0g0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -5)

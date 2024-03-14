@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://cd52t0gb1n8cy"]
+
+[ext_resource type="Texture2D" uid="uid://daystae37wf0d" path="res://Assets/GenericMaterials/ProceduralTextures/Concrete_Cinderblocks_albedo.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://cu4qgdttgh8ts" path="res://Assets/GenericMaterials/ProceduralTextures/Concrete_Cinderblocks_normal.png" id="3"]
+
+[resource]
+albedo_texture = ExtResource("1")
+normal_enabled = true
+normal_texture = ExtResource("3")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_world_triplanar = true
+uv2_world_triplanar = true
