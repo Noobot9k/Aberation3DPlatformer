@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bsmj74nu84w61"]
+[gd_scene load_steps=22 format=3 uid="uid://bsmj74nu84w61"]
 
 [ext_resource type="Script" path="res://Assets/LevelLogic/LevelLogic.gd" id="1_sutiq"]
 [ext_resource type="Environment" uid="uid://t52k88e33d7b" path="res://Environment/WorldEnvironment.tres" id="2_fbbko"]
@@ -16,6 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://28nd052655jh" path="res://Assets/GenericProps/dumpster.tscn" id="14_vp5of"]
 [ext_resource type="PackedScene" uid="uid://wjamvsb3p4cp" path="res://Assets/GenericProps/tree.tscn" id="15_lb3o3"]
 [ext_resource type="PackedScene" uid="uid://bhuw6ptx8h7gr" path="res://Assets/GenericProps/Bush.tscn" id="16_toc81"]
+[ext_resource type="PackedScene" uid="uid://t483jnmq7p0l" path="res://Assets/GenericProps/Bollard.tscn" id="17_vrxmy"]
+[ext_resource type="PackedScene" uid="uid://bf43ku8f0iw1y" path="res://Assets/GenericProps/bench.tscn" id="18_ms6pp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ri8kp"]
 size = Vector3(86, 33, 86)
@@ -79,12 +81,6 @@ material_override = ExtResource("3_yuvmt")
 cast_shadow = 0
 use_collision = true
 size = Vector3(11, 1, 5)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.5, -9)
-material_override = ExtResource("6_we5qn")
-use_collision = true
-size = Vector3(2, 1, 2)
 
 [node name="CSGBox3D30" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.5, 13.5, -24.5)
@@ -200,11 +196,6 @@ material_override = ExtResource("6_we5qn")
 use_collision = true
 size = Vector3(3, 3, 3)
 
-[node name="CSGBox3D16" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.5, -24)
-use_collision = true
-size = Vector3(2, 1, 2)
-
 [node name="CSGBox3D28" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 4.5, -15)
 material_override = ExtResource("4_nf455")
@@ -248,10 +239,10 @@ use_collision = true
 size = Vector3(1, 1, 19)
 
 [node name="CSGBox3D12" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.5, 3.5, 3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.5, 6, 3)
 material_override = ExtResource("7_npxa1")
 use_collision = true
-size = Vector3(9, 7, 4)
+size = Vector3(9, 12, 4)
 
 [node name="CSGBox3D9" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 2.5, -11)
@@ -445,9 +436,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -9)
 [node name="RigidBody3D10" parent="." instance=ExtResource("10_v42ts")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -24)
 
-[node name="RigidBody3D9" parent="." instance=ExtResource("10_v42ts")]
-transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -10, 1, -9)
-
 [node name="Handrail4" parent="." instance=ExtResource("9_3hmw5")]
 transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, -6, 0, -11)
 
@@ -465,6 +453,9 @@ transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, -12, 0, 
 
 [node name="Dumpster" parent="." instance=ExtResource("14_vp5of")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 10)
+
+[node name="Dumpster3" parent="." instance=ExtResource("14_vp5of")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 0, -9)
 
 [node name="Dumpster2" parent="." instance=ExtResource("14_vp5of")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -24)
@@ -486,3 +477,45 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 3)
 
 [node name="Bush2" parent="." instance=ExtResource("16_toc81")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 23)
+
+[node name="Bollard" parent="." instance=ExtResource("17_vrxmy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 4, -28)
+
+[node name="Bollard2" parent="." instance=ExtResource("17_vrxmy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 4, -30)
+
+[node name="Bollard3" parent="." instance=ExtResource("17_vrxmy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 4, -32)
+
+[node name="Bollard4" parent="." instance=ExtResource("17_vrxmy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 4, -34)
+
+[node name="Bollard5" parent="." instance=ExtResource("17_vrxmy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 4, -35)
+
+[node name="Bollard6" parent="." instance=ExtResource("17_vrxmy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 4, -35)
+
+[node name="Bollard7" parent="." instance=ExtResource("17_vrxmy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 4, -35)
+
+[node name="Bollard8" parent="." instance=ExtResource("17_vrxmy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 4, -35)
+
+[node name="Bollard9" parent="." instance=ExtResource("17_vrxmy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 4, 15)
+
+[node name="Bollard10" parent="." instance=ExtResource("17_vrxmy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 4, 17)
+
+[node name="Cone4" parent="." instance=ExtResource("5_5wag4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37, 4, 21)
+
+[node name="Bench" parent="." instance=ExtResource("18_ms6pp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -10)
+
+[node name="Bench2" parent="." instance=ExtResource("18_ms6pp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -25)
+
+[node name="Bench3" parent="." instance=ExtResource("18_ms6pp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 4, -34)
