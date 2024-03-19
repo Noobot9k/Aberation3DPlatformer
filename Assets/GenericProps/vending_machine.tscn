@@ -2,15 +2,16 @@
 
 [ext_resource type="PackedScene" uid="uid://m4psvngylkj8" path="res://Assets/GenericProps/VendingMachine/vending_machine_model.tscn" id="1_e4y6e"]
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_jk2s2"]
-points = PackedVector3Array(0.525295, 2.5958, 0.93549, -0.999433, 0.0127594, -1, 0.999433, 0.0127594, -1, -0.999433, 2.98694, -1, -0.930457, 0.0477312, 0.88389, 0.999433, 2.98694, -1, 0.979282, 0.0427424, 0.841505, -0.97933, 2.95703, 0.841547, 0.979282, 2.95696, 0.841505, -0.97933, 0.0426714, 0.841547, 0.930442, 0.0477549, 0.883875, -0.930457, 2.95197, 0.88389, 0.930442, 2.95195, 0.883875)
+[sub_resource type="BoxShape3D" id="BoxShape3D_avkyd"]
+size = Vector3(2, 3, 1.9)
 
 [node name="RigidBody3D" type="RigidBody3D" groups=["DecorationDebris"]]
 mass = 30.0
 center_of_mass_mode = 1
 center_of_mass = Vector3(0, 1.5, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("ConvexPolygonShape3D_jk2s2")
-
 [node name="VendingMachine" parent="." instance=ExtResource("1_e4y6e")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -0.05)
+shape = SubResource("BoxShape3D_avkyd")
