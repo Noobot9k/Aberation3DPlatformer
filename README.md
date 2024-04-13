@@ -25,6 +25,8 @@ Since this new position for the camera could also be obstructed, it shoots anoth
 
 The results I think are very satisfying as the camera will move around obstacles to get a better view of the character.
 
+If I were to change something now, I would make the camera move a bit quicker so it's less frustrating, I would make smaller objects that don't really get in the camera's way not cause the camera to move, and I would probably make it so once the camera moves off to the side, it then tries to move further back from its new location.
+
 # Screenshots
 ![2024-03-13 (29)](https://github.com/Noobot9k/Aberation3DPlatformer/assets/32988106/cf39b38a-9d2a-4867-a27c-ca85228cc879)
 ![2024-03-13 (4)](https://github.com/Noobot9k/Aberation3DPlatformer/assets/32988106/c90e0d51-fe1f-47f8-993a-5ee874eca343)
