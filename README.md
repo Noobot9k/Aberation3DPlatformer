@@ -19,7 +19,7 @@ The camera controller is also pretty interesting. Some players complained about 
 
 The camera controller has a desired direction (at a 45-degree angle and about 15 degrees up) and distance from the player it wants to be at. It then shoots a raycast from the player character's position to this desired camera position. (Where it's shooting from and to are important.) A more simple camera controller might just move the camera in slightly closer to the character to avoid being obscured by an obstacle but I wanted to do more than this. The raycast got the surface normal of whatever was in the way of the camera. The camera controller uses this surface normal and projects the camera's desired position onto that plane. This causes the camera to move to the side or up to look around obstacles, and to only zoom in as much as is needed.
 
-![example](Marketing/Readme/CameraExample.png)
+![example](Marketing/Readme/CameraExample.png) ![example2](Marketing/Readme/CameraExample2.png)
 
 Since this new position for the camera could also be obstructed, it shoots another raycast from the character to its new position and just goes with the simple move-closer-to-the-character approach if it's obstructed at its new location.
 
