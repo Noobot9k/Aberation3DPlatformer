@@ -19,6 +19,8 @@ The camera controller is also pretty interesting. Some players complained about 
 
 The camera controller has a desired direction (at a 45-degree angle and about 15 degrees up) and distance from the player it wants to be at. It then shoots a raycast from the player character's position to this desired camera position. (Where it's shooting from and to are important.) A more simple camera controller might just move the camera in slightly closer to the character to avoid being obscured by an obstacle but I wanted to do more than this. The raycast got the surface normal of whatever was in the way of the camera. The camera controller uses this surface normal and projects the camera's desired position onto that plane. This causes the camera to move to the side or up to look around obstacles, and to only zoom in as much as is needed.
 
+![example](Marketing/Readme/CameraExample.png)
+
 # Screenshots
 ![2024-03-13 (29)](https://github.com/Noobot9k/Aberation3DPlatformer/assets/32988106/cf39b38a-9d2a-4867-a27c-ca85228cc879)
 ![2024-03-13 (4)](https://github.com/Noobot9k/Aberation3DPlatformer/assets/32988106/c90e0d51-fe1f-47f8-993a-5ee874eca343)
