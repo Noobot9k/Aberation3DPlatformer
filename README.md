@@ -21,6 +21,10 @@ The camera controller has a desired direction (at a 45-degree angle and about 15
 
 ![example](Marketing/Readme/CameraExample.png)
 
+Since this new position for the camera could also be obstructed, it shoots another raycast from the character to its new position and just goes with the simple move-closer-to-the-character approach if it's obstructed at its new location.
+
+The results I think are very satisfying as the camera will move around obstacles to get a better view of the character.
+
 # Screenshots
 ![2024-03-13 (29)](https://github.com/Noobot9k/Aberation3DPlatformer/assets/32988106/cf39b38a-9d2a-4867-a27c-ca85228cc879)
 ![2024-03-13 (4)](https://github.com/Noobot9k/Aberation3DPlatformer/assets/32988106/c90e0d51-fe1f-47f8-993a-5ee874eca343)
